@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { OnboardingRoutingModule } from './onboarding-routing.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -14,6 +15,7 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
   declarations: [LoginComponent, SignupComponent, ForgotPasswordComponent],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     OnboardingRoutingModule,
     MatFormFieldModule,
     MatInputModule,

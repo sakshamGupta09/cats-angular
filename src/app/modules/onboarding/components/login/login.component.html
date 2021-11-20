@@ -8,17 +8,56 @@
         class="login__logo"
       />
     </div>
-    <form class="form mt-sm" novalidate autocomplete="off" spellcheck="false">
+    <form
+      class="form mt-sm"
+      [formGroup]="form"
+      (ngSubmit)="onSubmit()"
+      novalidate
+      autocomplete="off"
+      spellcheck="false"
+    >
       <div class="form__group">
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="test@example.com" />
+          <input
+            matInput
+            formControlName="email"
+            placeholder="test@example.com"
+          />
+          <mat-error
+            *ngIf="
+              form.get('email').invalid &&
+              (form.get('email').touched || form.get('email').dirty)
+            "
+          >
+            <ng-container *ngIf="form.get('email').errors?.['required']"
+              >Email is required</ng-container
+            >
+            <ng-container *ngIf="form.get('email').errors?.['email']"
+              >Please enter a valid email</ng-container
+            >
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="form__group">
         <mat-form-field appearance="outline">
           <mat-label>Password</mat-label>
-          <input matInput type="password" placeholder="Password" />
+          <input
+            matInput
+            formControlName="password"
+            type="password"
+            placeholder="Password"
+          />
+          <mat-error
+            *ngIf="
+              form.get('email').invalid &&
+              (form.get('email').touched || form.get('email').dirty)
+            "
+          >
+            <ng-container *ngIf="form.get('password').errors?.['required']"
+              >Password is required</ng-container
+            >
+          </mat-error>
         </mat-form-field>
       </div>
       <div class="text-right">
@@ -27,7 +66,13 @@
         >
       </div>
       <div class="form__group mt-xs">
-        <button class="w-100" type="submit" mat-raised-button color="primary">
+        <button
+          class="w-100"
+          type="submit"
+          [disabled]="form.invalid"
+          mat-raised-button
+          color="primary"
+        >
           LOGIN
         </button>
       </div>
