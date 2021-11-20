@@ -1,1 +1,39 @@
-<p>login works!</p>
+<div class="login__container">
+  <div class="login__card">
+    <div class="login__imgbox text-center">
+      <img
+        src="assets/images/logo/logo.png"
+        alt="Application Logo"
+        loading="lazy"
+        class="login__logo"
+      />
+    </div>
+    <form class="form mt-sm" novalidate autocomplete="off" spellcheck="false">
+      <div class="form__group">
+        <mat-form-field appearance="outline">
+          <mat-label>Email</mat-label>
+          <input matInput placeholder="test@example.com" />
+        </mat-form-field>
+      </div>
+      <div class="form__group">
+        <mat-form-field appearance="outline">
+          <mat-label>Password</mat-label>
+          <input matInput type="password" placeholder="Password" />
+        </mat-form-field>
+      </div>
+      <div class="text-right">
+        <a routerLink="../reset-password" class="login__link"
+          >Forgot Password</a
+        >
+      </div>
+      <div class="form__group mt-xs">
+        <button class="w-100" type="submit" mat-raised-button color="primary">
+          LOGIN
+        </button>
+      </div>
+      <div class="mt-sm text-center">
+        <a routerLink="../signup" class="login__link">Register as a new user</a>
+      </div>
+    </form>
+  </div>
+</div>
