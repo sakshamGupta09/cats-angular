@@ -50,8 +50,8 @@
           />
           <mat-error
             *ngIf="
-              form.get('email').invalid &&
-              (form.get('email').touched || form.get('email').dirty)
+              form.get('password').invalid &&
+              (form.get('password').touched || form.get('password').dirty)
             "
           >
             <ng-container *ngIf="form.get('password').errors?.['required']"
@@ -69,11 +69,11 @@
         <button
           class="w-100"
           type="submit"
-          [disabled]="form.invalid"
+          [disabled]="isLoading"
           mat-raised-button
           color="primary"
         >
-          LOGIN
+          {{ isLoading ? "PROCESSING ..." : "LOGIN" }}
         </button>
       </div>
       <div class="mt-sm text-center">

@@ -12,4 +12,14 @@ export class AuthService {
       this.user = cacheData;
     }
   }
+  public getUser(): IAdmin {
+    return this.user;
+  }
+  public updateUser(user: IAdmin): void {
+    this.user = user;
+    localStorage.setItem('credentials', JSON.stringify(user));
+  }
+  public logout(): void {
+    this.user = null;
+  }
 }

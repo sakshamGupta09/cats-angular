@@ -11,6 +11,8 @@ import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
+import { OnboardingService } from './services/onboarding.service';
+
 @NgModule({
   declarations: [LoginComponent, SignupComponent, ForgotPasswordComponent],
   imports: [
@@ -21,5 +23,6 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     MatInputModule,
     MatButtonModule,
   ],
+  providers: [OnboardingService],
 })
 export class OnboardingModule {}
