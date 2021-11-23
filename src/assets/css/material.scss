@@ -7,3 +7,11 @@
 .mat-error {
   font-size: 13px !important;
 }
+.green-snackbar {
+  background-color: var(--color-primary) !important;
+  color: var(--color-white) !important;
+}
+.red-snackbar {
+  background-color: red !important;
+  color: var(--color-white) !important;
+}
