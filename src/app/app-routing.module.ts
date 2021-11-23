@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './guards/auth.guard';
 import { SelectivePreloadingService } from './services/selective-preloading/selective-preloading.service';
 
 const routes: Routes = [
@@ -11,9 +12,15 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'app',
+    loadChildren: () =>
+      import('./modules/layout/layout.module').then((m) => m.LayoutModule),
+    canActivate: [AuthGuard],
+  },
+  {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/onboarding/login',
+    redirectTo: '/app',
   },
   {
     path: '**',
