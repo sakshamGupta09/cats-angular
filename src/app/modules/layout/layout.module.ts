@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { LayoutRoutingModule } from './layout-routing.module';
-import { LayoutComponent } from './components/layout/layout.component';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
+import { LayoutComponent } from './components/layout/layout.component';
+import { HeaderComponent } from './components/header/header.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 @NgModule({
-  declarations: [
-    LayoutComponent
-  ],
-  imports: [
-    CommonModule,
-    LayoutRoutingModule
-  ]
+  declarations: [LayoutComponent, HeaderComponent, SidenavComponent],
+  imports: [CommonModule, LayoutRoutingModule, MatButtonModule, MatIconModule],
 })
-export class LayoutModule { }
+export class LayoutModule {}

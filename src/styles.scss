@@ -22,13 +22,11 @@ $app-theme: mat.define-light-theme(
 
 @include mat.all-component-themes($app-theme);
 
-html,
-body {
-  height: 100%;
+html {
   font-size: 100%;
 }
 body {
-  margin: 0;
+  height: 100%;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
   background-color: #f9f9fe;

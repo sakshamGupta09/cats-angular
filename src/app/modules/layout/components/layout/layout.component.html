@@ -1,1 +1,5 @@
-<p>layout works!</p>
+<div class="layout">
+  <app-header (toggleSidebar)="onSidebarToggle($event)"></app-header>
+  <app-sidenav [isOpen]="sidebarMode"></app-sidenav>
+  <main class="layout__content">Content</main>
+</div>
