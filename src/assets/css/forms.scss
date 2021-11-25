@@ -1,0 +1,33 @@
+.form-control {
+  flex: 1 1 auto;
+  font-size: 1rem;
+  font-family: inherit;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0.6rem 0.75rem;
+  &:focus {
+    outline: none;
+    box-shadow: none;
+  }
+}
+.input-group {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  padding: 0 0.75rem;
+  .form-control {
+    border: 0;
+    padding: 0.6rem 0;
+  }
+  .input-icon {
+    color: #495057;
+    display: flex;
+  }
+}
+.form-error {
+  margin-top: 0.35rem;
+  padding-left: 0.35rem;
+  color: red;
+}

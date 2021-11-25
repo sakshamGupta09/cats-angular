@@ -16,51 +16,54 @@
       autocomplete="off"
       spellcheck="false"
     >
-      <div class="form__group">
-        <mat-form-field appearance="outline">
-          <mat-label>Email</mat-label>
-          <input
-            matInput
-            formControlName="email"
-            placeholder="test@example.com"
-          />
-          <mat-error
-            *ngIf="
-              form.get('email').invalid &&
-              (form.get('email').touched || form.get('email').dirty)
-            "
-          >
-            <ng-container *ngIf="form.get('email').errors?.['required']"
-              >Email is required</ng-container
-            >
-            <ng-container *ngIf="form.get('email').errors?.['email']"
-              >Please enter a valid email</ng-container
-            >
-          </mat-error>
-        </mat-form-field>
+      <div class="input-group">
+        <input
+          type="email"
+          class="form-control"
+          placeholder="Email"
+          formControlName="email"
+        />
+        <span class="input-icon">
+          <mat-icon>mail_outline</mat-icon>
+        </span>
       </div>
-      <div class="form__group">
-        <mat-form-field appearance="outline">
-          <mat-label>Password</mat-label>
-          <input
-            matInput
-            formControlName="password"
-            type="password"
-            placeholder="Password"
-          />
-          <mat-error
-            *ngIf="
-              form.get('password').invalid &&
-              (form.get('password').touched || form.get('password').dirty)
-            "
-          >
-            <ng-container *ngIf="form.get('password').errors?.['required']"
-              >Password is required</ng-container
-            >
-          </mat-error>
-        </mat-form-field>
+      <div
+        class="form-error"
+        *ngIf="
+          form.get('email').invalid &&
+          (form.get('email').touched || form.get('email').dirty)
+        "
+      >
+        <ng-container *ngIf="form.get('email').errors?.['required']"
+          >Email is required</ng-container
+        >
+        <ng-container *ngIf="form.get('email').errors?.['email']"
+          >Please enter a valid email</ng-container
+        >
       </div>
-      <div class="text-right">
+      <div class="input-group mt-xs">
+        <input
+          type="password"
+          class="form-control"
+          placeholder="Password"
+          formControlName="password"
+        />
+        <span class="input-icon">
+          <mat-icon>lock_open</mat-icon>
+        </span>
+      </div>
+      <div
+        class="form-error"
+        *ngIf="
+          form.get('password').invalid &&
+          (form.get('password').touched || form.get('password').dirty)
+        "
+      >
+        <ng-container *ngIf="form.get('password').errors?.['required']"
+          >Password is required</ng-container
+        >
+      </div>
+      <div class="text-right mt-xs">
         <a routerLink="../reset-password" class="login__link"
           >Forgot Password</a
         >

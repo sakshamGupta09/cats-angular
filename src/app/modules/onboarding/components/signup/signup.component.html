@@ -1,1 +1,25 @@
-<p>signup works!</p>
+<div class="signup__container">
+  <div class="signup__card">
+    <div class="signup__imgbox text-center">
+      <img
+        src="assets/images/logo/logo.png"
+        alt="Application Logo"
+        loading="lazy"
+        class="signup__logo"
+      />
+    </div>
+    <form class="form mt-sm" novalidate autocomplete="off" spellcheck="false">
+      <div class="input-group">
+        <input type="text" class="form-control" placeholder="Email" />
+        <span class="input-icon">
+          <mat-icon>mail</mat-icon>
+        </span>
+      </div>
+      <div class="mt-sm text-center">
+        <a routerLink="../login" class="signup__link"
+          >I already have an account</a
+        >
+      </div>
+    </form>
+  </div>
+</div>
