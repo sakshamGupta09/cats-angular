@@ -10,18 +10,28 @@
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   transition: transform 0.3s ease-in-out;
 
-  &--open {
-    transform: translateX(0) !important;
-  }
-
   @media only screen and (max-width: 1200px) {
     transform: translateX(-100%);
+
+    &--open {
+      transform: translateX(0) !important;
+    }
   }
 
-  &__brand {
+  &__overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.1);
+    z-index: 2;
+  }
+  &__branding {
     height: var(--header-height);
-    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-bottom: 1px solid #4b545c;
-    padding: 1rem 1.25rem;
   }
 }

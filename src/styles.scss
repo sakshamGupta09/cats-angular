@@ -29,7 +29,7 @@ body {
   height: 100%;
   font-family: "Open Sans", sans-serif;
   line-height: 1.5;
-  background-color: #f9f9fe;
+  background-color: #e9ecef;
 }
 * {
   margin: 0;
@@ -40,3 +40,4 @@ body {
 @import "src/assets/css/utilities";
 @import "src/assets/css/spacing";
 @import "src/assets/css/material";
+@import "src/assets/css/typography";

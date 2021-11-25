@@ -1,7 +1,7 @@
 import {
   ChangeDetectionStrategy,
+  ChangeDetectorRef,
   Component,
-  Input,
   OnInit,
 } from '@angular/core';
 
@@ -12,8 +12,16 @@ import {
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SidenavComponent implements OnInit {
-  @Input() isOpen;
-  constructor() {}
+  isOpen: boolean = false;
+  constructor(private cdRef: ChangeDetectorRef) {}
 
   ngOnInit(): void {}
+
+  public toggleSidenav(): void {
+    this.isOpen = !this.isOpen;
+    this.detectChanges();
+  }
+  private detectChanges(): void {
+    this.cdRef.detectChanges();
+  }
 }

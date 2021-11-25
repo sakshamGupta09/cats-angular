@@ -1,9 +1,10 @@
 <aside class="sidenav" [class.sidenav--open]="isOpen">
-  <a routerLink="/app" class="sidenav__brand">
-    <img
-      src="assets/images/logo/logo_white.png"
-      alt="Airbox Logo"
-      class="sidenav__logo"
-    />
+  <a routerLink="/app" class="sidenav__branding">
+    <img src="assets/images/logo/logo_white.png" alt="Airbox Logo" loading="lazy" />
   </a>
 </aside>
+<div
+  class="sidenav__overlay"
+  [hidden]="!isOpen"
+  (click)="toggleSidenav()"
+></div>

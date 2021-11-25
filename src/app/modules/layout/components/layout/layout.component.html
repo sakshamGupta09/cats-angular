@@ -1,5 +1,17 @@
 <div class="layout">
-  <app-header (toggleSidebar)="onSidebarToggle($event)"></app-header>
-  <app-sidenav [isOpen]="sidebarMode"></app-sidenav>
-  <main class="layout__content">Content</main>
+  <header class="header">
+    <button
+      class="header__menu"
+      mat-icon-button
+      color="primary"
+      (click)="sidenav.toggleSidenav()"
+      aria-label="Navigation Button"
+    >
+      <mat-icon aria-hidden="false" aria-label="Navigation Icon">menu</mat-icon>
+    </button>
+  </header>
+  <app-sidenav #sidenav></app-sidenav>
+  <main class="layout__content">
+    <router-outlet></router-outlet>
+  </main>
 </div>

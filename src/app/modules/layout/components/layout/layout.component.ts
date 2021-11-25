@@ -7,12 +7,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class LayoutComponent implements OnInit {
-  sidebarMode: boolean = false;
   constructor() {}
 
   ngOnInit(): void {}
-
-  onSidebarToggle(event: any): void {
-    this.sidebarMode = !this.sidebarMode;
-  }
 }
