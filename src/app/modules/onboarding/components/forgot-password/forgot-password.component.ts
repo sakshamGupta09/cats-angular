@@ -1,13 +1,50 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { OnboardingService } from '../../services/onboarding.service';
 
 @Component({
   selector: 'app-forgot-password',
   templateUrl: './forgot-password.component.html',
-  styleUrls: ['./forgot-password.component.scss'],
+  styleUrls: [
+    './forgot-password.component.scss',
+    '../login/login.component.scss',
+  ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ForgotPasswordComponent implements OnInit {
-  constructor() {}
+  form: FormGroup;
+  isLoading: boolean = false;
 
-  ngOnInit(): void {}
+  constructor(
+    private fb: FormBuilder,
+    private service: OnboardingService,
+    private cdRef: ChangeDetectorRef
+  ) {}
+
+  ngOnInit(): void {
+    this.initForm();
+  }
+  initForm(): void {
+    this.form = this.fb.group(
+      {
+        email: ['', [Validators.required, Validators.email]],
+      },
+      { updateOn: 'blur' }
+    );
+  }
+  onSubmit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.isLoading = true;
+  }
+  detectChanges(): void {
+    this.cdRef.detectChanges();
+  }
 }

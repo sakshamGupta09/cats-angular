@@ -1,33 +1,33 @@
 .form-control {
-  flex: 1 1 auto;
+  width: 100%;
   font-size: 1rem;
   font-family: inherit;
   color: #495057;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  padding: 0.6rem 0.75rem;
+  padding: 0.6rem 2.5rem 0.6rem 0.75rem;
+  background-color: var(--color-white);
   &:focus {
-    outline: none;
+    outline: 2px solid var(--color-primary);
     box-shadow: none;
+    border: none;
   }
 }
-.input-group {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ced4da;
-  border-radius: 0.25rem;
-  padding: 0 0.75rem;
-  .form-control {
-    border: 0;
-    padding: 0.6rem 0;
-  }
+.form-group {
+  position: relative;
   .input-icon {
     color: #495057;
-    display: flex;
+    position: absolute;
+    top: 10px;
+    right: 10px;
   }
 }
 .form-error {
   margin-top: 0.35rem;
   padding-left: 0.35rem;
   color: red;
+}
+.form-control.ng-touched.ng-invalid {
+  outline: 2px solid red;
+  border: none;
 }

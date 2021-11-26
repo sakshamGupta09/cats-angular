@@ -16,7 +16,7 @@
       autocomplete="off"
       spellcheck="false"
     >
-      <div class="input-group">
+      <div class="form-group">
         <input
           type="email"
           class="form-control"
@@ -41,7 +41,7 @@
           >Please enter a valid email</ng-container
         >
       </div>
-      <div class="input-group mt-xs">
+      <div class="form-group mt-xs">
         <input
           type="password"
           class="form-control"
@@ -70,13 +70,13 @@
       </div>
       <div class="form__group mt-xs">
         <button
-          class="w-100"
+          class="w-100 login__btn"
           type="submit"
           [disabled]="isLoading"
           mat-raised-button
           color="primary"
         >
-          {{ isLoading ? "PROCESSING ..." : "LOGIN" }}
+          {{ isLoading ? "processing ..." : "Login" }}
         </button>
       </div>
       <div class="mt-sm text-center">
