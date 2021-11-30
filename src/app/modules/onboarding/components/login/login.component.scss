@@ -6,6 +6,8 @@
     height: 100vh;
     justify-content: center;
     align-items: center;
+    background-image: url("/assets/images/login-bg.svg");
+    background-size: cover;
   }
   &__card {
     width: 100%;
