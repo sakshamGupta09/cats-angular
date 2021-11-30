@@ -43,6 +43,16 @@ export class ForgotPasswordComponent implements OnInit {
       return;
     }
     this.isLoading = true;
+    this.service.sendPasswordResetLink(this.form.value).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+        this.detectChanges();
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.detectChanges();
+      },
+    });
   }
   detectChanges(): void {
     this.cdRef.detectChanges();

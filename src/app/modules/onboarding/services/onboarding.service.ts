@@ -10,6 +10,9 @@ export class OnboardingService {
     return this.http.post('admin/login', payload);
   }
   sendPasswordResetLink(payload): Observable<unknown> {
-    return this.http.post('admin/resetPassword', payload);
+    return this.http.post('admin/forgotPassword', payload);
+  }
+  resetPassword(payload): Observable<unknown> {
+    return this.http.patch('admin/resetPassword', payload);
   }
 }

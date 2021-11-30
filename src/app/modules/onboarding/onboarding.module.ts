@@ -13,9 +13,15 @@ import { SignupComponent } from './components/signup/signup.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 
 import { OnboardingService } from './services/onboarding.service';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 
 @NgModule({
-  declarations: [LoginComponent, SignupComponent, ForgotPasswordComponent],
+  declarations: [
+    LoginComponent,
+    SignupComponent,
+    ForgotPasswordComponent,
+    ResetPasswordComponent,
+  ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
