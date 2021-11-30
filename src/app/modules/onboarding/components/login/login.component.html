@@ -26,20 +26,20 @@
         <span class="input-icon">
           <mat-icon>mail_outline</mat-icon>
         </span>
-      </div>
-      <div
-        class="form-error"
-        *ngIf="
-          form.get('email').invalid &&
-          (form.get('email').touched || form.get('email').dirty)
-        "
-      >
-        <ng-container *ngIf="form.get('email').errors?.['required']"
-          >Email is required</ng-container
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('email').invalid &&
+            (form.get('email').touched || form.get('email').dirty)
+          "
         >
-        <ng-container *ngIf="form.get('email').errors?.['email']"
-          >Please enter a valid email</ng-container
-        >
+          <ng-container *ngIf="form.get('email').errors?.['required']"
+            >Email is required</ng-container
+          >
+          <ng-container *ngIf="form.get('email').errors?.['email']"
+            >Please enter a valid email</ng-container
+          >
+        </div>
       </div>
       <div class="form-group mt-xs">
         <input
@@ -51,17 +51,17 @@
         <span class="input-icon">
           <mat-icon>lock_open</mat-icon>
         </span>
-      </div>
-      <div
-        class="form-error"
-        *ngIf="
-          form.get('password').invalid &&
-          (form.get('password').touched || form.get('password').dirty)
-        "
-      >
-        <ng-container *ngIf="form.get('password').errors?.['required']"
-          >Password is required</ng-container
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('password').invalid &&
+            (form.get('password').touched || form.get('password').dirty)
+          "
         >
+          <ng-container *ngIf="form.get('password').errors?.['required']"
+            >Password is required</ng-container
+          >
+        </div>
       </div>
       <div class="text-right mt-xs">
         <a routerLink="../forgot-password" class="login__link"
