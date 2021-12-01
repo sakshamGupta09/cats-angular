@@ -20,7 +20,7 @@ const routes: Routes = [
   {
     path: '',
     pathMatch: 'full',
-    redirectTo: '/app',
+    redirectTo: '/app/client/listing',
   },
   {
     path: '**',
