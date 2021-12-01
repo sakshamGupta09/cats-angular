@@ -12,10 +12,6 @@ const routes: Routes = [
         loadChildren: () =>
           import('../clients/client.module').then((m) => m.ClientModule),
       },
-      {
-        path: '',
-        redirectTo: 'client/listing',
-      },
     ],
   },
 ];
