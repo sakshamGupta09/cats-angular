@@ -6,6 +6,17 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    children: [
+      {
+        path: 'client',
+        loadChildren: () =>
+          import('../clients/client.module').then((m) => m.ClientModule),
+      },
+      {
+        path: '',
+        redirectTo: 'client/listing',
+      },
+    ],
   },
 ];
 
