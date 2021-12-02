@@ -1,10 +1,10 @@
 .layout {
   &__content {
     margin-top: var(--header-height);
-    padding: 1rem;
+    padding: 0.5rem;
     @media only screen and (min-width: 1200px) {
       margin-left: var(--sidenav-width);
-      padding: 1rem 0.8rem;
+      padding: 1rem 1.5rem;
     }
   }
 }
