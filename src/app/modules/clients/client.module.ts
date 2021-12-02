@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ListingComponent } from './components/listing/listing.component';
 import { DetailsComponent } from './components/details/details.component';
@@ -16,7 +18,7 @@ import { ClientService } from './services/client.service';
     AddComponent,
     EditComponent,
   ],
-  imports: [CommonModule, ClientRoutingModule],
+  imports: [CommonModule, ClientRoutingModule, MatButtonModule, MatIconModule],
   providers: [ClientService],
 })
 export class ClientModule {}

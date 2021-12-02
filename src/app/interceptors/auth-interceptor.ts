@@ -20,7 +20,7 @@ export class AuthInterceptor implements HttpInterceptor {
       return next.handle(newReq);
     }
     const authReq = req.clone({
-      setHeaders: { Authorization: user.authToken },
+      setHeaders: { Authorization: 'Bearer ' + user.authToken },
       url: environment.SERVER_URL + req.url,
     });
     return next.handle(authReq);

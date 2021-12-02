@@ -3,46 +3,22 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
-        <th>Company</th>
-        <th>Contact</th>
-        <th>Country</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Website</th>
+        <th>Added By</th>
+        <th>Created At</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-        <td>Alfreds Futterkiste</td>
-        <td>Maria Anders</td>
-        <td>Germany</td>
-      </tr>
-      <tr>
-        <td>Berglunds snabbköp</td>
-        <td>Christina Berglund</td>
-        <td>Sweden</td>
-        <td>Berglunds snabbköp</td>
-        <td>Christina Berglund</td>
-        <td>Sweden</td>
-      </tr>
-      <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-      </tr>
-      <tr>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
-        <td>Centro comercial Moctezuma</td>
-        <td>Francisco Chang</td>
-        <td>Mexico</td>
+      <tr *ngFor="let el of clients; trackBy: tracker">
+        <td>{{ el.name }}</td>
+        <td>{{ el.email }}</td>
+        <td>{{ el.phone }}</td>
+        <td>{{ el.website }}</td>
+        <td>{{ el.owner[0].firstName + " " + el.owner[0].lastName }}</td>
+        <td>{{ el.createdAt }}</td>
       </tr>
     </tbody>
   </table>
