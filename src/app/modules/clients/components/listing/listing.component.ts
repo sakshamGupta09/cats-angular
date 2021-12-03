@@ -49,7 +49,9 @@ export class ListingComponent implements OnInit {
     return item._id;
   }
   public searchClients(event: string): void {
-    console.log(event);
+    this.payload.search = event;
+    this.payload.skip = 0;
+    this.getClients();
   }
   private detectChanges(): void {
     this.cdRef.detectChanges();

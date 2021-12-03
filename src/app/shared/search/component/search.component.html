@@ -1,6 +1,11 @@
-<input
-  type="search"
-  class="form-control"
-  [placeholder]="placeholder"
-  [formControl]="control"
-/>
+<div class="form-group">
+  <input
+    type="search"
+    class="form-control form-control--prepend"
+    [placeholder]="placeholder"
+    [formControl]="control"
+  />
+  <span class="input-icon-prepend">
+    <mat-icon>search</mat-icon>
+  </span>
+</div>

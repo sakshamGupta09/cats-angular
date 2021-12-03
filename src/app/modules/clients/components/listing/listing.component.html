@@ -1,10 +1,12 @@
 <h1 class="page-heading">Clients Listing</h1>
 <app-loader [hidden]="!isLoading"></app-loader>
 <div class="table-container" *ngIf="clients">
-  <app-search
-    (onSearch)="searchClients($event)"
-    placeholder="Client Name"
-  ></app-search>
+  <div class="search-box">
+    <app-search
+      (onSearch)="searchClients($event)"
+      placeholder="Search by client name"
+    ></app-search>
+  </div>
   <table class="table">
     <thead>
       <tr>
