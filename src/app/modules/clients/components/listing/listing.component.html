@@ -1,5 +1,10 @@
 <h1 class="page-heading">Clients Listing</h1>
-<div class="table-container">
+<app-loader [hidden]="!isLoading"></app-loader>
+<div class="table-container" *ngIf="clients">
+  <app-search
+    (onSearch)="searchClients($event)"
+    placeholder="Client Name"
+  ></app-search>
   <table class="table">
     <thead>
       <tr>
@@ -11,7 +16,7 @@
         <th>Created At</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody [hidden]="!clients.length">
       <tr *ngFor="let el of clients; trackBy: tracker">
         <td>{{ el.name }}</td>
         <td>{{ el.email }}</td>
@@ -22,4 +27,5 @@
       </tr>
     </tbody>
   </table>
+  <div class="no-data" [hidden]="clients.length">No Data Found</div>
 </div>

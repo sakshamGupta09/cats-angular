@@ -20,6 +20,7 @@ export class ListingComponent implements OnInit {
     skip: 0,
     search: '',
   };
+  isLoading: boolean = false;
   constructor(
     private service: ClientService,
     private cdRef: ChangeDetectorRef
@@ -30,18 +31,25 @@ export class ListingComponent implements OnInit {
   }
 
   private getClients(): void {
+    this.isLoading = true;
     this.service.getClients(this.payload).subscribe({
       next: (res) => {
         this.clients = res.data;
+        this.isLoading = false;
         this.detectChanges();
       },
       error: (err) => {
         this.clients = [];
+        this.isLoading = false;
+        this.detectChanges();
       },
     });
   }
   public tracker(index: number, item: IClient): string {
     return item._id;
+  }
+  public searchClients(event: string): void {
+    console.log(event);
   }
   private detectChanges(): void {
     this.cdRef.detectChanges();
