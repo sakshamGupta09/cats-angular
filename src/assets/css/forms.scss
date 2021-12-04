@@ -4,19 +4,24 @@
   font-family: inherit;
   color: #495057;
   border: 1px solid #ced4da;
+  outline: 2px solid transparent;
   border-radius: 0.25rem;
   padding: 0.6rem 0.75rem 0.6rem 0.75rem;
   background-color: var(--color-white);
   &:focus {
     outline: 2px solid var(--color-primary);
     box-shadow: none;
-    border: none;
+    border: 1px solid transparent;
   }
   &--append {
     padding-right: 2.5rem;
   }
   &--prepend {
     padding-left: 2.5rem;
+  }
+  &.ng-touched.ng-invalid {
+    outline: 2px solid red;
+    border: 1px solid transparent;
   }
 }
 .form-group {
@@ -38,8 +43,4 @@
   margin-top: 0.35rem;
   padding-left: 0.35rem;
   color: red;
-}
-.form-control.ng-touched.ng-invalid {
-  outline: 2px solid red;
-  border: none;
 }
