@@ -1,11 +1,14 @@
 <h1 class="page-heading">Clients Listing</h1>
 <app-loader [hidden]="!isLoading"></app-loader>
 <div class="table-container" *ngIf="clients">
-  <div class="search-box">
-    <app-search
-      (onSearch)="searchClients($event)"
-      placeholder="Search by client name"
-    ></app-search>
+  <div class="header">
+    <a routerLink="../add" class="add-btn">+ Add Client</a>
+    <div class="search-box">
+      <app-search
+        (onSearch)="searchClients($event)"
+        placeholder="Search by client name"
+      ></app-search>
+    </div>
   </div>
   <table class="table">
     <thead>

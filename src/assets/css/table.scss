@@ -4,14 +4,35 @@
   border: 1px solid rgba(38, 139, 255, 0.07);
   padding: 0.5rem;
   overflow-x: auto;
-
   .search-box {
     margin-bottom: 1rem;
   }
+  .add-btn {
+    display: inline-block;
+    background-color: var(--color-white);
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1.5rem;
+    text-decoration: none;
+    font-size: 14px;
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+
+    &:hover {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+    }
+  }
   @media only screen and (min-width: 1200px) {
     padding: 1.5rem 1rem;
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
     .search-box {
-      width: 35%;
+      order: -1;
+      flex-basis: 40%;
     }
   }
 }
