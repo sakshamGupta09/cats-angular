@@ -23,12 +23,16 @@
     </thead>
     <tbody [hidden]="!clients.length">
       <tr *ngFor="let el of clients; trackBy: tracker">
-        <td>{{ el.name }}</td>
+        <td>
+          <a [routerLink]="['../details', el._id]" class="link">{{
+            el.name
+          }}</a>
+        </td>
         <td>{{ el.email }}</td>
         <td>{{ el.phone }}</td>
-        <td>{{ el.website }}</td>
+        <td><a class="link" [href]="el.website" target="_blank">Visit</a></td>
         <td>{{ el.owner[0].firstName + " " + el.owner[0].lastName }}</td>
-        <td>{{ el.createdAt }}</td>
+        <td>{{ el.createdAt | date: "mediumDate" }}</td>
       </tr>
     </tbody>
   </table>

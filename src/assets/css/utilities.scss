@@ -10,6 +10,15 @@
 .pointer {
   cursor: pointer;
 }
+.link {
+  &:link,
+  &:visited {
+    color: var(--color-primary);
+  }
+  &:hover {
+    color: var(--color-secondary);
+  }
+}
 .form {
   &__group {
     margin-top: 1rem;
