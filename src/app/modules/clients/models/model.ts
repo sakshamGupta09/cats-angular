@@ -8,5 +8,10 @@ export interface IClient {
   createdAt: Date;
   ownerId: string;
   isActive: boolean;
-  owner: Array<{ firstName: string; lastName: string }>;
+  owner: { username: string };
+}
+export interface IGetClientsResponse {
+  statusCode: number;
+  message: string;
+  data: { clients: IClient[]; totalRecords: number };
 }

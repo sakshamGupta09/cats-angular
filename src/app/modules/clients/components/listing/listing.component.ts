@@ -6,6 +6,7 @@ import {
 } from '@angular/core';
 import { IClient } from '../../models/model';
 import { ClientService } from '../../services/client.service';
+import { PageEvent } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-listing',
@@ -15,6 +16,8 @@ import { ClientService } from '../../services/client.service';
 })
 export class ListingComponent implements OnInit {
   clients: IClient[];
+  totalRecords: number;
+  pageSizeOptions = [10, 25, 50];
   payload = {
     limit: 10,
     skip: 0,
@@ -34,12 +37,14 @@ export class ListingComponent implements OnInit {
     this.isLoading = true;
     this.service.getClients(this.payload).subscribe({
       next: (res) => {
-        this.clients = res.data;
+        this.clients = res.data.clients;
+        this.totalRecords = res.data.totalRecords;
         this.isLoading = false;
         this.detectChanges();
       },
       error: (err) => {
         this.clients = [];
+        this.totalRecords = 0;
         this.isLoading = false;
         this.detectChanges();
       },
@@ -51,6 +56,11 @@ export class ListingComponent implements OnInit {
   public searchClients(event: string): void {
     this.payload.search = event;
     this.payload.skip = 0;
+    this.getClients();
+  }
+  public onPageEvent(event: PageEvent): void {
+    this.payload.limit = event.pageSize;
+    this.payload.skip = event.pageIndex * this.payload.limit;
     this.getClients();
   }
   private detectChanges(): void {

@@ -31,10 +31,20 @@
         <td>{{ el.email }}</td>
         <td>{{ el.phone }}</td>
         <td><a class="link" [href]="el.website" target="_blank">Visit</a></td>
-        <td>{{ el.owner[0].firstName + " " + el.owner[0].lastName }}</td>
+        <td>{{ el.owner.username }}</td>
         <td>{{ el.createdAt | date: "mediumDate" }}</td>
       </tr>
     </tbody>
   </table>
+  <div class="paginator mt-xs" [hidden]="!totalRecords">
+    <mat-paginator
+      [length]="totalRecords"
+      [pageSize]="payload.limit"
+      [pageSizeOptions]="pageSizeOptions"
+      aria-label="Select page"
+      (page)="onPageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
   <div class="no-data" [hidden]="clients.length">No Data Found</div>
 </div>
