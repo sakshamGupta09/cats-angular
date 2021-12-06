@@ -28,13 +28,16 @@ export class AddComponent implements OnInit {
   }
 
   private initForm(): void {
-    this.form = this.fb.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
-      phone: ['', [Validators.required]],
-      address: ['', [Validators.required]],
-      website: ['', [Validators.required, Validators.pattern(patterns.URL)]],
-    });
+    this.form = this.fb.group(
+      {
+        name: ['', [Validators.required]],
+        email: ['', [Validators.required, Validators.email]],
+        phone: ['', [Validators.required]],
+        address: ['', [Validators.required]],
+        website: ['', [Validators.required, Validators.pattern(patterns.URL)]],
+      },
+      { updateOn: 'blur' }
+    );
   }
   public onSubmit(): void {
     if (this.form.invalid) {
