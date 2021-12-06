@@ -1,1 +1,62 @@
-<p>add works!</p>
+<h1 class="page-heading">Add Client</h1>
+<div class="page-content">
+  <form
+    class="add-form"
+    [formGroup]="form"
+    autocomplete="off"
+    spellcheck="false"
+    novalidate
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-group">
+      <label for="clientName" class="form-label">Client Name</label>
+      <input
+        type="text"
+        id="clientName"
+        class="form-control"
+        placeholder="Abc company"
+        formControlName="name"
+      />
+    </div>
+    <div class="form-group">
+      <label for="clientEmail" class="form-label">Client Email</label>
+      <input
+        type="email"
+        id="clientEmail"
+        class="form-control"
+        placeholder="test@example.com"
+        formControlName="email"
+      />
+    </div>
+    <div class="form-group">
+      <label for="clientPhone" class="form-label">Client Phone</label>
+      <input
+        type="tel"
+        id="clientPhone"
+        class="form-control"
+        placeholder="0000000000"
+        formControlName="phone"
+      />
+    </div>
+    <div class="form-group">
+      <label for="clientAddress" class="form-label">Client Address</label>
+      <input
+        type="text"
+        id="clientAddress"
+        class="form-control"
+        placeholder="city, State"
+        formControlName="address"
+      />
+    </div>
+    <div class="form-group">
+      <label for="clientWebsite" class="form-label">Client Website</label>
+      <input
+        type="text"
+        id="clientWebsite"
+        class="form-control"
+        placeholder="www.example.com"
+        formControlName="website"
+      />
+    </div>
+  </form>
+</div>

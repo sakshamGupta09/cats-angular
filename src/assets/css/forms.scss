@@ -24,6 +24,14 @@
     border: 1px solid transparent;
   }
 }
+.form-label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 14px;
+  font-weight: 500;
+  color: #92929d;
+  letter-spacing: 0.11px;
+}
 .form-group {
   position: relative;
   .input-icon-append {

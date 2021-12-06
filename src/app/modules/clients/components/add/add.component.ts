@@ -1,4 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { patterns } from 'src/app/validators/patterns';
+import { ClientService } from '../../services/client.service';
 
 @Component({
   selector: 'app-add',
@@ -7,7 +10,36 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AddComponent implements OnInit {
-  constructor() {}
+  public form: FormGroup;
+  public isLoading: boolean = false;
+  constructor(private fb: FormBuilder, private service: ClientService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.initForm();
+  }
+
+  private initForm(): void {
+    this.form = this.fb.group({
+      name: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      phone: ['', [Validators.required]],
+      address: ['', [Validators.required]],
+      website: ['', [Validators.required, Validators.pattern(patterns.URL)]],
+    });
+  }
+  public onSubmit(): void {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+    this.isLoading = true;
+    this.service.addClient(this.form.value).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+      },
+      error: (err) => {
+        this.isLoading = false;
+      },
+    });
+  }
 }

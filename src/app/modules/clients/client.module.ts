@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ClientRoutingModule } from './client-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchModule } from 'src/app/shared/search/search.module';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
@@ -22,6 +23,8 @@ import { ClientService } from './services/client.service';
   imports: [
     CommonModule,
     ClientRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     SearchModule,
     LoaderModule,
     MatPaginatorModule,
