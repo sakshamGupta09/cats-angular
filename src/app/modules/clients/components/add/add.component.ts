@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  OnInit,
+} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { patterns } from 'src/app/validators/patterns';
 import { ClientService } from '../../services/client.service';
@@ -12,7 +17,11 @@ import { ClientService } from '../../services/client.service';
 export class AddComponent implements OnInit {
   public form: FormGroup;
   public isLoading: boolean = false;
-  constructor(private fb: FormBuilder, private service: ClientService) {}
+  constructor(
+    private fb: FormBuilder,
+    private service: ClientService,
+    private cdRef: ChangeDetectorRef
+  ) {}
 
   ngOnInit(): void {
     this.initForm();
@@ -36,10 +45,15 @@ export class AddComponent implements OnInit {
     this.service.addClient(this.form.value).subscribe({
       next: (res) => {
         this.isLoading = false;
+        this.detectChanges();
       },
       error: (err) => {
         this.isLoading = false;
+        this.detectChanges();
       },
     });
+  }
+  private detectChanges(): void {
+    this.cdRef.detectChanges();
   }
 }

@@ -1,15 +1,21 @@
 @import "src/assets/css/forms";
+@import "src/assets/css/buttons";
 
 .form-group:not(:last-child) {
   @media screen and (max-width: 768px) {
     margin-bottom: 1rem;
   }
 }
-.form-layout {
-  @media screen and (min-width: 768px) {
+
+@media screen and (min-width: 768px) {
+  .form-layout {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-row-gap: 1.5rem;
     grid-column-gap: 2rem;
+  }
+  .btn-group {
+    display: flex;
+    justify-content: space-between;
   }
 }

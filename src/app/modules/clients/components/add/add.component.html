@@ -60,5 +60,13 @@
         />
       </div>
     </div>
+    <hr />
+    <div class="btn-group mt-sm">
+      <button routerLink="../listing" class="btn btn--cancel" type="button">
+        go back
+      </button>
+      <button class="btn btn--add" type="submit">add client</button>
+    </div>
   </form>
 </div>
+<app-loader [hidden]="!isLoading"></app-loader>
