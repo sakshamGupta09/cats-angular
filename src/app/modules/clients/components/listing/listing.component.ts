@@ -17,9 +17,9 @@ import { PageEvent } from '@angular/material/paginator';
 export class ListingComponent implements OnInit {
   clients: IClient[];
   totalRecords: number;
-  pageSizeOptions = [10, 25, 50];
+  pageSizeOptions = [5, 10, 25];
   payload = {
-    limit: 10,
+    limit: 5,
     skip: 0,
     search: '',
   };

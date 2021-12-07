@@ -18,6 +18,17 @@
           placeholder="Abc company"
           formControlName="name"
         />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('name').invalid &&
+            (form.get('name').touched || form.get('name').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('name').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
       </div>
       <div class="form-group">
         <label for="clientEmail" class="form-label">Client Email</label>
@@ -28,6 +39,20 @@
           placeholder="test@example.com"
           formControlName="email"
         />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('email').invalid &&
+            (form.get('email').touched || form.get('email').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('email').errors?.['required']"
+            >This field is required</ng-container
+          >
+          <ng-container *ngIf="form.get('email').errors?.['email']"
+            >Please enter a valid input</ng-container
+          >
+        </div>
       </div>
       <div class="form-group">
         <label for="clientPhone" class="form-label">Client Phone</label>
@@ -38,6 +63,17 @@
           placeholder="0000000000"
           formControlName="phone"
         />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('phone').invalid &&
+            (form.get('phone').touched || form.get('phone').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('phone').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
       </div>
       <div class="form-group">
         <label for="clientAddress" class="form-label">Client Address</label>
@@ -48,6 +84,17 @@
           placeholder="city, State"
           formControlName="address"
         />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('address').invalid &&
+            (form.get('address').touched || form.get('address').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('address').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
       </div>
       <div class="form-group">
         <label for="clientWebsite" class="form-label">Client Website</label>
@@ -58,6 +105,20 @@
           placeholder="www.example.com"
           formControlName="website"
         />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('website').invalid &&
+            (form.get('website').touched || form.get('website').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('website').errors?.['required']"
+            >This field is required</ng-container
+          >
+          <ng-container *ngIf="form.get('website').errors?.['pattern']"
+            >Please enter a valid input</ng-container
+          >
+        </div>
       </div>
     </div>
     <hr />
