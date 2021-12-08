@@ -3,7 +3,7 @@
   font-size: 1rem;
   font-family: inherit;
   color: #495057;
-  border: 1px solid #ced4da;
+  border: 1.5px solid #ced4da;
   outline: 2px solid transparent;
   border-radius: 0.25rem;
   padding: 0.6rem 0.75rem 0.6rem 0.75rem;
@@ -11,7 +11,7 @@
   &:focus {
     outline: 2px solid var(--color-primary);
     box-shadow: none;
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
   }
   &--append {
     padding-right: 2.5rem;
@@ -21,7 +21,7 @@
   }
   &.ng-touched.ng-invalid {
     outline: 2px solid red;
-    border: 1px solid transparent;
+    border: 1.5px solid transparent;
   }
   &::placeholder {
     opacity: 0.4;
