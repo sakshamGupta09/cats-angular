@@ -1,0 +1,36 @@
+.details-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  row-gap: 2px;
+  border: 1px solid #ececec;
+
+  & > * {
+    background-color: var(--color-white);
+    padding: 0.5rem 1rem;
+    margin: 0;
+  }
+
+  .key-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #92929d;
+    letter-spacing: 1px;
+  }
+  .key-value {
+    font-size: 1rem;
+    color: #44444f;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 768px) {
+    .key-label {
+      font-size: 13px;
+    }
+    .key-value {
+      font-size: 14px;
+    }
+    & > * {
+      padding: 0.5rem;
+    }
+  }
+}
