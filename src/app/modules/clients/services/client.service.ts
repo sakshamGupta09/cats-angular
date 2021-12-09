@@ -1,6 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { IAddClient, IGetClientsResponse } from '../models/model';
+import {
+  IAddClient,
+  IGetClientById,
+  IGetClientsResponse,
+  IUpdateClient,
+} from '../models/model';
 
 @Injectable()
 export class ClientService {
@@ -13,5 +18,11 @@ export class ClientService {
   }
   public addClient(payload: IAddClient) {
     return this.http.post<IAddClient>('client/create', payload);
+  }
+  public getClientById(clientId: string) {
+    return this.http.get<IGetClientById>(`client/getById/${clientId}`);
+  }
+  public updateClient(clientId: string, payload: IUpdateClient) {
+    return this.http.patch<IUpdateClient>(`client/update/${clientId}`, payload);
   }
 }

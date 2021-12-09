@@ -1,1 +1,142 @@
-<p>edit works!</p>
+<h1 class="page-heading">Update Client</h1>
+<div class="page-content">
+  <form
+    class="add-form"
+    [formGroup]="form"
+    autocomplete="off"
+    spellcheck="false"
+    novalidate
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-layout">
+      <div class="form-group">
+        <label for="clientName" class="form-label">Client Name</label>
+        <input
+          type="text"
+          id="clientName"
+          class="form-control"
+          placeholder="Abc company"
+          formControlName="name"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('name').invalid &&
+            (form.get('name').touched || form.get('name').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('name').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clientEmail" class="form-label">Client Email</label>
+        <input
+          type="email"
+          id="clientEmail"
+          class="form-control"
+          placeholder="test@example.com"
+          formControlName="email"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('email').invalid &&
+            (form.get('email').touched || form.get('email').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('email').errors?.['required']"
+            >This field is required</ng-container
+          >
+          <ng-container *ngIf="form.get('email').errors?.['email']"
+            >Please enter a valid input</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clientPhone" class="form-label">Client Phone</label>
+        <input
+          type="tel"
+          id="clientPhone"
+          class="form-control"
+          placeholder="0000000000"
+          formControlName="phone"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('phone').invalid &&
+            (form.get('phone').touched || form.get('phone').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('phone').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clientAddress" class="form-label">Client Address</label>
+        <input
+          type="text"
+          id="clientAddress"
+          class="form-control"
+          placeholder="city, State"
+          formControlName="address"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('address').invalid &&
+            (form.get('address').touched || form.get('address').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('address').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clientWebsite" class="form-label">Client Website</label>
+        <input
+          type="text"
+          id="clientWebsite"
+          class="form-control"
+          placeholder="www.example.com"
+          formControlName="website"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('website').invalid &&
+            (form.get('website').touched || form.get('website').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('website').errors?.['required']"
+            >This field is required</ng-container
+          >
+          <ng-container *ngIf="form.get('website').errors?.['pattern']"
+            >Please enter a valid input</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="clientStatus" class="form-label">Client Status</label>
+
+        <mat-slide-toggle
+          color="primary"
+          id="clientStatus"
+          formControlName="isActive"
+        ></mat-slide-toggle>
+      </div>
+    </div>
+    <hr />
+    <div class="btn-group mt-sm">
+      <button routerLink="../../listing" class="btn btn--cancel" type="button">
+        go back
+      </button>
+      <button class="btn btn--add" type="submit">update client</button>
+    </div>
+  </form>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>

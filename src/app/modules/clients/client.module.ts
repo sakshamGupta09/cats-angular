@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchModule } from 'src/app/shared/search/search.module';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 import { ListingComponent } from './components/listing/listing.component';
 import { DetailsComponent } from './components/details/details.component';
@@ -28,6 +29,7 @@ import { ClientService } from './services/client.service';
     SearchModule,
     LoaderModule,
     MatPaginatorModule,
+    MatSlideToggleModule,
   ],
   providers: [ClientService],
 })

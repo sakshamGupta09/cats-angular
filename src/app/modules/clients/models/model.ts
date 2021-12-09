@@ -15,10 +15,23 @@ export interface IGetClientsResponse {
   message: string;
   data: { clients: IClient[]; totalRecords: number };
 }
+export interface IGetClientById {
+  statusCode: number;
+  message: string;
+  data: IClient;
+}
 export interface IAddClient {
   name: string;
   email: string;
   phone: string;
   address: string;
   website: string;
+}
+export interface IUpdateClient {
+  name: string;
+  email: string;
+  phone: string;
+  address: string;
+  website: string;
+  isActive: boolean;
 }
