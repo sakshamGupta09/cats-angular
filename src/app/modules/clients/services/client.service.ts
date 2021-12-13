@@ -25,4 +25,7 @@ export class ClientService {
   public updateClient(clientId: string, payload: IUpdateClient) {
     return this.http.patch<IUpdateClient>(`client/update/${clientId}`, payload);
   }
+  public deleteClient(clientId: string) {
+    return this.http.delete(`client/delete/${clientId}`);
+  }
 }

@@ -42,7 +42,7 @@
               <mat-icon>edit</mat-icon>
               <span>Edit</span>
             </button>
-            <button mat-menu-item>
+            <button mat-menu-item (click)="onDeleteHandler(el._id)">
               <mat-icon>delete_outline</mat-icon>
               <span>Delete</span>
             </button>
@@ -64,3 +64,20 @@
   <div class="no-data" [hidden]="clients.length">No Data Found</div>
 </div>
 <app-loader [hidden]="!isLoading"></app-loader>
+<app-modal heading="Confirmation" modalType="modal__sm" [hidden]="!isModalOpen">
+  <p modal-body class="confirmation-text">
+    Are you sure you want to delete this client ?
+  </p>
+  <div modal-footer class="btn-group">
+    <button
+      class="btn btn--cancel"
+      (click)="isModalOpen = !isModalOpen"
+      type="button"
+    >
+      no, thanks
+    </button>
+    <button class="btn btn--add" type="submit" (click)="deleteClient()">
+      yes, delete
+    </button>
+  </div>
+</app-modal>

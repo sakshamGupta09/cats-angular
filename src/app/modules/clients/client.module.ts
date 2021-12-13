@@ -4,6 +4,8 @@ import { ClientRoutingModule } from './client-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SearchModule } from 'src/app/shared/search/search.module';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
+import { ModalModule } from 'src/app/shared/modal/modal.module';
+
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatButtonModule } from '@angular/material/button';
@@ -31,6 +33,7 @@ import { ClientService } from './services/client.service';
     ReactiveFormsModule,
     SearchModule,
     LoaderModule,
+    ModalModule,
     MatPaginatorModule,
     MatSlideToggleModule,
     MatButtonModule,

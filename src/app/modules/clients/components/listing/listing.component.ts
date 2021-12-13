@@ -24,6 +24,8 @@ export class ListingComponent implements OnInit {
     search: '',
   };
   isLoading: boolean = false;
+  isModalOpen: boolean = false;
+  clientIdForDeletion: string;
   constructor(
     private service: ClientService,
     private cdRef: ChangeDetectorRef
@@ -62,6 +64,24 @@ export class ListingComponent implements OnInit {
     this.payload.limit = event.pageSize;
     this.payload.skip = event.pageIndex * this.payload.limit;
     this.getClients();
+  }
+  public onDeleteHandler(clientId: string): void {
+    this.clientIdForDeletion = clientId;
+    this.isModalOpen = true;
+  }
+  public deleteClient(): void {
+    this.isLoading = true;
+    this.service.deleteClient(this.clientIdForDeletion).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+        this.isModalOpen = false;
+        this.getClients();
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.detectChanges();
+      },
+    });
   }
   private detectChanges(): void {
     this.cdRef.detectChanges();
