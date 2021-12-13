@@ -6,6 +6,9 @@ import { SearchModule } from 'src/app/shared/search/search.module';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
 
 import { ListingComponent } from './components/listing/listing.component';
 import { DetailsComponent } from './components/details/details.component';
@@ -30,6 +33,9 @@ import { ClientService } from './services/client.service';
     LoaderModule,
     MatPaginatorModule,
     MatSlideToggleModule,
+    MatButtonModule,
+    MatIconModule,
+    MatMenuModule,
   ],
   providers: [ClientService],
 })

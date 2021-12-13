@@ -1,5 +1,4 @@
 <h1 class="page-heading">Clients Listing</h1>
-<app-loader [hidden]="!isLoading"></app-loader>
 <div class="table-container" *ngIf="clients">
   <div class="header">
     <a routerLink="../add" class="add-btn">+ Add Client</a>
@@ -19,6 +18,7 @@
         <th>Website</th>
         <th>Added By</th>
         <th>Created At</th>
+        <th>Actions</th>
       </tr>
     </thead>
     <tbody [hidden]="!clients.length">
@@ -33,6 +33,21 @@
         <td><a class="link" [href]="el.website" target="_blank">Visit</a></td>
         <td>{{ el.owner.username }}</td>
         <td>{{ el.createdAt | date: "mediumDate" }}</td>
+        <td>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['../edit', el._id]">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete_outline</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
       </tr>
     </tbody>
   </table>
@@ -48,3 +63,4 @@
   </div>
   <div class="no-data" [hidden]="clients.length">No Data Found</div>
 </div>
+<app-loader [hidden]="!isLoading"></app-loader>

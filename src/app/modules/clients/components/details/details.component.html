@@ -1,7 +1,22 @@
 <h1 class="page-heading">Client Details</h1>
-<div class="details-container">
+<div class="details-container" *ngIf="client">
   <h6 class="key-label">Client Name</h6>
-  <p class="key-value">Xyz enterprises</p>
+  <p class="key-value">{{ client.name }}</p>
   <h6 class="key-label">Client Email</h6>
-  <p class="key-value">Xyz@example.com</p>
+  <p class="key-value">{{ client.email }}</p>
+  <h6 class="key-label">Client Phone</h6>
+  <p class="key-value">{{ client.phone }}</p>
+  <h6 class="key-label">Client Address</h6>
+  <p class="key-value">{{ client.address }}</p>
+  <h6 class="key-label">Website Link</h6>
+  <p class="key-value">
+    <a class="link" [href]="client.website" target="_blank">{{
+      client.website
+    }}</a>
+  </p>
+  <h6 class="key-label">Creation Date</h6>
+  <p class="key-value">{{ client.createdAt | date: "mediumDate" }}</p>
+  <h6 class="key-label">Owner</h6>
+  <p class="key-value">{{ client.owner.username }}</p>
 </div>
+<app-loader [hidden]="!isLoading"></app-loader>
