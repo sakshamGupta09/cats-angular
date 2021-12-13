@@ -1,0 +1,11 @@
+<div class="modal">
+  <div class="modal__content" [class]="modalType">
+    <div class="modal__header">{{ heading }}</div>
+    <div class="modal__body">
+      <ng-content select="[modal-body]"></ng-content>
+    </div>
+    <div class="modal__footer">
+      <ng-content select="[modal-footer]"></ng-content>
+    </div>
+  </div>
+</div>
