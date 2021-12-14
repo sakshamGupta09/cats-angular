@@ -35,7 +35,12 @@
         letter-spacing: 1px;
         color: #44444f;
         text-align: left;
-        // padding: 10px;
+        padding: 10px;
+      }
+      .mat-icon-button {
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
       }
     }
   }
