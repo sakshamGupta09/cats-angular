@@ -1,1 +1,54 @@
-<p>listing works!</p>
+<h1 class="page-heading">Contacts Listing</h1>
+<div class="table-container" *ngIf="contacts">
+  <div class="header">
+    <a [routerLink]="['../../add',clientId]" class="add-btn">+ Add Contact</a>
+    <div class="search-box">
+      <app-search
+        (onSearch)="searchContact($event)"
+        placeholder="Search by contact name"
+      ></app-search>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Added By</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody [hidden]="!contacts.length">
+      <tr *ngFor="let el of contacts; trackBy: tracker">
+        <td>
+          <a [routerLink]="['../details', el._id]" class="link">{{
+            el.username
+          }}</a>
+        </td>
+        <td>{{ el.email }}</td>
+        <td>{{ el.phone }}</td>
+        <td>{{ el.owner.username }}</td>
+        <td>{{ el.createdAt | date: "mediumDate" }}</td>
+        <td>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['../edit', el._id]">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item>
+              <mat-icon>delete_outline</mat-icon>
+              <span>Delete</span>
+            </button>
+          </mat-menu>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="no-data" [hidden]="contacts.length">No Data Found</div>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>
