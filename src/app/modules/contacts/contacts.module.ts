@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
 import { ContactsRoutingModule } from './contacts-routing.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { SearchModule } from 'src/app/shared/search/search.module';
 import { MatButtonModule } from '@angular/material/button';
@@ -24,6 +24,8 @@ import { ContactsService } from './services/contacts.service';
   imports: [
     CommonModule,
     ContactsRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     LoaderModule,
     SearchModule,
     MatButtonModule,

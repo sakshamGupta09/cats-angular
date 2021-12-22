@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IContact, IGetContactsResponse } from '../models/model';
+import { IAddContact, IContact, IGetContactsResponse } from '../models/model';
 
 @Injectable()
 export class ContactsService {
@@ -10,5 +10,8 @@ export class ContactsService {
     return this.http.get<IGetContactsResponse>(`contacts/get/${clientId}`, {
       params: payload,
     });
+  }
+  public addContact(payload: IAddContact) {
+    return this.http.post<IAddContact>('contacts/create', payload);
   }
 }

@@ -18,3 +18,13 @@
 .mat-icon {
   color: #495057;
 }
+.mat-menu-item {
+  border-left: 2px solid transparent !important;
+  transition: border 0.2s ease-in-out;
+  &:hover {
+    border-left: 2px solid var(--color-primary) !important;
+  }
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
+}

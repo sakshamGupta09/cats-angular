@@ -15,3 +15,12 @@ export interface IGetContactsResponse {
   message: string;
   data: { contacts: IContact[]; totalRecords: number };
 }
+export interface IAddContact {
+  firstName: string;
+  lastName: string;
+  email: string;
+  phone: string;
+  jobTitle: string;
+  department: string;
+  clientId: string;
+}
