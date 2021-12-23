@@ -6,7 +6,6 @@ import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { SearchModule } from 'src/app/shared/search/search.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { MatMenuModule } from '@angular/material/menu';
 
 import { AddComponent } from './components/add/add.component';
 import { EditComponent } from './components/edit/edit.component';
@@ -30,7 +29,6 @@ import { ContactsService } from './services/contacts.service';
     SearchModule,
     MatButtonModule,
     MatIconModule,
-    MatMenuModule,
   ],
   providers: [ContactsService],
 })

@@ -1,0 +1,19 @@
+.card {
+  background-color: var(--color-white);
+  box-shadow: var(--shadow);
+
+  &__header {
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #44444f;
+    letter-spacing: 0.8px;
+  }
+  &__body {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+  }
+}

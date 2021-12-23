@@ -1,2 +1,14 @@
 <h1 class="page-heading">Contacts Listing</h1>
+<section class="contacts" *ngIf="contacts">
+  <div class="card" *ngFor="let el of contacts; trackBy: tracker">
+    <div class="card__header">
+      <p class="card__title">{{ el.username }}</p>
+    </div>
+    <div class="card__body">
+      <mat-icon>home</mat-icon>
+      <p class="card__info">Information</p>
+    </div>
+    <div class="card__footer"></div>
+  </div>
+</section>
 <app-loader [hidden]="!isLoading"></app-loader>
