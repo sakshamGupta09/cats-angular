@@ -12,3 +12,25 @@
   font-weight: 500;
   color: #44444f;
 }
+.key-label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #92929d;
+  letter-spacing: 1px;
+  margin-bottom: 0 !important;
+}
+.key-value {
+  font-size: 1rem;
+  color: #44444f;
+  font-weight: 500;
+  margin-bottom: 0 !important;
+}
+
+@media screen and (max-width: 768px) {
+  .key-label {
+    font-size: 13px;
+  }
+  .key-value {
+    font-size: 14px;
+  }
+}

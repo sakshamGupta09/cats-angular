@@ -22,7 +22,11 @@
   border-left: 2px solid transparent !important;
   transition: border 0.2s ease-in-out;
   &:hover {
-    border-left: 2px solid var(--color-primary) !important;
+    color: var(--color-primary);
+    border-left: 2px solid currentColor !important;
+  }
+  .mat-icon {
+    color: currentColor;
   }
   &:not(:last-child) {
     border-bottom: 1px solid #eee;

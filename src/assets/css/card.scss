@@ -4,6 +4,7 @@
 
   &__header {
     border-bottom: 1px solid #e5e5e5;
+    padding: 0.5rem;
   }
 
   &__title {
@@ -11,9 +12,14 @@
     font-weight: 600;
     color: #44444f;
     letter-spacing: 0.8px;
+    margin-bottom: 0 !important;
   }
   &__body {
     display: grid;
     grid-template-columns: min-content 1fr;
+    grid-gap: 1rem;
+    align-items: center;
+    border-bottom: 1px solid #e5e5e5;
+    padding: 0.5rem;
   }
 }

@@ -5,8 +5,16 @@
       <p class="card__title">{{ el.username }}</p>
     </div>
     <div class="card__body">
-      <mat-icon>home</mat-icon>
-      <p class="card__info">Information</p>
+      <p class="key-label">Email</p>
+      <p class="key-value">{{ el.email }}</p>
+      <p class="key-label">Phone</p>
+      <p class="key-value">{{ el.phone }}</p>
+      <p class="key-label">Job Title</p>
+      <p class="key-value">{{ el.jobTitle }}</p>
+      <p class="key-label">Department</p>
+      <p class="key-value">{{ el.department }}</p>
+      <p class="key-label">Added By</p>
+      <p class="key-value">{{ el.owner.username }}</p>
     </div>
     <div class="card__footer"></div>
   </div>
