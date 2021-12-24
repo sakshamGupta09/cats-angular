@@ -44,26 +44,6 @@
       }
     }
   }
-  .search-box {
-    margin-bottom: 1rem;
-  }
-  .add-btn {
-    display: inline-block;
-    background-color: var(--color-white);
-    border: 1px solid #ced4da;
-    border-radius: 0.25rem;
-    padding: 0.5rem 1.5rem;
-    text-decoration: none;
-    font-size: 14px;
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    transition: all 0.2s ease-in;
-
-    &:hover {
-      background-color: var(--color-primary);
-      color: var(--color-white);
-    }
-  }
   @media only screen and (min-width: 1200px) {
     padding: 1.5rem 1rem;
     .header {

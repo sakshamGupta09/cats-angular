@@ -1,22 +1,33 @@
 <h1 class="page-heading">Contacts Listing</h1>
-<section class="contacts" *ngIf="contacts">
-  <div class="card" *ngFor="let el of contacts; trackBy: tracker">
-    <div class="card__header">
-      <p class="card__title">{{ el.username }}</p>
+<section *ngIf="contacts">
+  <div class="contacts__header mt-sm">
+    <a [routerLink]="['../../add', clientId]" class="add-btn">+ Add Contact</a>
+    <div class="search-box">
+      <app-search
+        (onSearch)="searchContact($event)"
+        placeholder="Search by contact name"
+      ></app-search>
     </div>
-    <div class="card__body">
-      <p class="key-label">Email</p>
-      <p class="key-value">{{ el.email }}</p>
-      <p class="key-label">Phone</p>
-      <p class="key-value">{{ el.phone }}</p>
-      <p class="key-label">Job Title</p>
-      <p class="key-value">{{ el.jobTitle }}</p>
-      <p class="key-label">Department</p>
-      <p class="key-value">{{ el.department }}</p>
-      <p class="key-label">Added By</p>
-      <p class="key-value">{{ el.owner.username }}</p>
+  </div>
+  <div class="contacts mt-xs">
+    <div class="card" *ngFor="let el of contacts; trackBy: tracker">
+      <div class="card__header">
+        <p class="card__title">{{ el.username }}</p>
+      </div>
+      <div class="card__body">
+        <p class="key-label">Email</p>
+        <p class="key-value">{{ el.email }}</p>
+        <p class="key-label">Phone</p>
+        <p class="key-value">{{ el.phone }}</p>
+        <p class="key-label">Job Title</p>
+        <p class="key-value">{{ el.jobTitle }}</p>
+        <p class="key-label">Department</p>
+        <p class="key-value">{{ el.department }}</p>
+        <p class="key-label">Added By</p>
+        <p class="key-value">{{ el.owner.username }}</p>
+      </div>
+      <div class="card__footer"></div>
     </div>
-    <div class="card__footer"></div>
   </div>
 </section>
 <app-loader [hidden]="!isLoading"></app-loader>

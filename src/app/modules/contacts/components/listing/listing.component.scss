@@ -4,3 +4,14 @@
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   grid-gap: 1rem;
 }
+@media screen and (min-width: 768px) {
+  .contacts__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .search-box {
+    order: -1;
+    flex-basis: 40%;
+  }
+}
