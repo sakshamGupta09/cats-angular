@@ -1,7 +1,7 @@
 @import "src/assets/css/card";
 .contacts {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-gap: 1rem;
 }
 @media screen and (min-width: 768px) {
