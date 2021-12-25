@@ -26,7 +26,15 @@
         <p class="key-label">Added By</p>
         <p class="key-value">{{ el.owner.username }}</p>
       </div>
-      <div class="card__footer"></div>
+      <div class="card__footer">
+        <div
+          class="card__btn card__btn--add"
+          [routerLink]="['../../edit', el._id]"
+        >
+          Edit
+        </div>
+        <div class="card__btn card__btn--cancel">Delete</div>
+      </div>
     </div>
   </div>
   <div class="no-data mt-xs" [hidden]="contacts.length">No Data Found</div>
