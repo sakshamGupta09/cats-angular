@@ -1,4 +1,6 @@
 @import "src/assets/css/card";
+@import "src/assets/css/buttons";
+
 .contacts {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));

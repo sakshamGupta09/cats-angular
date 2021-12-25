@@ -4,6 +4,7 @@ import { ContactsRoutingModule } from './contacts-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { SearchModule } from 'src/app/shared/search/search.module';
+import { ModalModule } from 'src/app/shared/modal/modal.module';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 
@@ -27,6 +28,7 @@ import { ContactsService } from './services/contacts.service';
     ReactiveFormsModule,
     LoaderModule,
     SearchModule,
+    ModalModule,
     MatButtonModule,
     MatIconModule,
   ],

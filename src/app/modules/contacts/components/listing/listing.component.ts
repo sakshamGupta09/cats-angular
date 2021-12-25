@@ -23,6 +23,8 @@ export class ListingComponent implements OnInit {
     search: '',
   };
   isLoading: boolean = false;
+  isModalOpen: boolean = false;
+  contactIdForDeletion: string;
   constructor(
     private service: ContactsService,
     private route: ActivatedRoute,
@@ -58,6 +60,23 @@ export class ListingComponent implements OnInit {
   }
   public tracker(index: number, row: IContact): string {
     return row._id;
+  }
+  public onDeleteHandler(contactId: string): void {
+    this.contactIdForDeletion = contactId;
+    this.isModalOpen = true;
+  }
+  public deleteContact(): void {
+    this.isLoading = true;
+    this.service.deleteContact(this.contactIdForDeletion).subscribe({
+      next: (res) => {
+        this.isModalOpen = false;
+        this.getContacts();
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.detectChanges();
+      },
+    });
   }
   private detectChanges(): void {
     this.cdRef.detectChanges();

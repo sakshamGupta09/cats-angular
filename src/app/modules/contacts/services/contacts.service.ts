@@ -14,4 +14,7 @@ export class ContactsService {
   public addContact(payload: IAddContact) {
     return this.http.post<IAddContact>('contacts/create', payload);
   }
+  public deleteContact(contactId: string) {
+    return this.http.delete(`contacts/delete/${contactId}`);
+  }
 }
