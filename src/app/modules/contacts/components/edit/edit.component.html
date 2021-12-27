@@ -1,1 +1,151 @@
-<p>edit works!</p>
+<h1 class="page-heading">Update Contact</h1>
+<div class="page-content">
+  <form
+    class="add-form"
+    [formGroup]="form"
+    autocomplete="off"
+    spellcheck="false"
+    novalidate
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-layout">
+      <div class="form-group">
+        <label for="firstName" class="form-label">First Name</label>
+        <input
+          type="text"
+          id="firstName"
+          class="form-control"
+          placeholder="Abc company"
+          formControlName="firstName"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('firstName').invalid &&
+            (form.get('firstName').touched || form.get('firstName').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('firstName').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="lastName" class="form-label">Last Name</label>
+        <input
+          type="text"
+          id="lastName"
+          class="form-control"
+          placeholder="Abc company"
+          formControlName="lastName"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('lastName').invalid &&
+            (form.get('lastName').touched || form.get('lastName').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('lastName').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email" class="form-label">Email</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          placeholder="test@example.com"
+          formControlName="email"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('email').invalid &&
+            (form.get('email').touched || form.get('email').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('email').errors?.['required']"
+            >This field is required</ng-container
+          >
+          <ng-container *ngIf="form.get('email').errors?.['email']"
+            >Please enter a valid input</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="phone" class="form-label">Phone</label>
+        <input
+          type="tel"
+          id="phone"
+          class="form-control"
+          placeholder="0000000000"
+          formControlName="phone"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('phone').invalid &&
+            (form.get('phone').touched || form.get('phone').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('phone').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="jobTitle" class="form-label">Job Title</label>
+        <input
+          type="text"
+          id="jobTitle"
+          class="form-control"
+          placeholder="Senior Associate"
+          formControlName="jobTitle"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('jobTitle').invalid &&
+            (form.get('jobTitle').touched || form.get('jobTitle').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('jobTitle').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="department" class="form-label">Department</label>
+        <input
+          type="text"
+          id="department"
+          class="form-control"
+          placeholder="HR"
+          formControlName="department"
+        />
+        <div
+          class="form-error"
+          *ngIf="
+            form.get('department').invalid &&
+            (form.get('department').touched || form.get('department').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('department').errors?.['required']"
+            >This field is required</ng-container
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
+    <div class="btn-group mt-sm">
+      <button (click)="goBack()" class="btn btn--cancel" type="button">
+        go back
+      </button>
+      <button class="btn btn--add" type="submit">update contact</button>
+    </div>
+  </form>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>

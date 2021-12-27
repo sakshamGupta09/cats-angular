@@ -15,6 +15,11 @@ export interface IGetContactsResponse {
   message: string;
   data: { contacts: IContact[]; totalRecords: number };
 }
+export interface IGetContactById {
+  statusCode: number;
+  message: string;
+  data: IContact;
+}
 export interface IAddContact {
   firstName: string;
   lastName: string;

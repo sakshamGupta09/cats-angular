@@ -15,7 +15,7 @@ const routes: Routes = [
     component: AddComponent,
   },
   {
-    path: 'edit/:clientId',
+    path: 'edit/:contactId',
     component: EditComponent,
   },
   {
