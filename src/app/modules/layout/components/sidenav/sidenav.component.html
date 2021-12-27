@@ -6,6 +6,28 @@
       loading="lazy"
     />
   </a>
+  <nav class="nav">
+    <a href="#" class="nav__link">
+      <mat-icon class="nav__icon">grid_view</mat-icon>
+      <span class="nav__text">Dashboard</span>
+    </a>
+    <a
+      routerLink="/app/client"
+      routerLinkActive="nav__link--active"
+      class="nav__link"
+    >
+      <mat-icon class="nav__icon">people_outline</mat-icon>
+      <span class="nav__text">Clients</span>
+    </a>
+    <a
+      routerLink="/app/recruiter"
+      routerLinkActive="nav__link--active"
+      class="nav__link"
+    >
+      <mat-icon class="nav__icon">manage_accounts</mat-icon>
+      <span class="nav__text">Recruiters</span>
+    </a>
+  </nav>
 </aside>
 <div
   class="sidenav__overlay"

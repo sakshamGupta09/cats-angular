@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'edit/:clientId',
     component: EditComponent,
   },
+  {
+    path: '',
+    redirectTo: 'listing',
+  },
 ];
 
 @NgModule({

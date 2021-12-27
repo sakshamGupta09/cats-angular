@@ -35,3 +35,36 @@
     border-bottom: 1px solid #4b545c;
   }
 }
+.nav {
+  padding: 0.5rem;
+  margin-top: 1rem;
+
+  &__link {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    color: #c2c7d0;
+    padding: 0.75rem 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 0.2rem;
+    transition: all 0.2s ease-in-out;
+
+    &:hover:not(.nav__link--active) {
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+    }
+    &--active {
+      color: #fff;
+      background-color: #007bff;
+    }
+  }
+  &__icon {
+    color: currentColor;
+  }
+  &__text {
+    color: currentColor;
+    margin-left: 0.5rem;
+    letter-spacing: 0.8px;
+  }
+}
