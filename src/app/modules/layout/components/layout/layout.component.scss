@@ -17,6 +17,7 @@
   background-color: var(--header-color);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   z-index: 1;
   padding: 1rem;
   border-bottom: 1px solid #dee2e6;
@@ -26,5 +27,17 @@
     &__menu {
       display: none;
     }
+  }
+}
+.user {
+  display: flex;
+  align-items: center;
+  &__name {
+    font-size: 1rem;
+    font-weight: 500;
+    color: #000;
+  }
+  &__img {
+    margin-left: 0.5rem;
   }
 }
