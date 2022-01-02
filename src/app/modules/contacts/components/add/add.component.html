@@ -141,7 +141,11 @@
     </div>
     <hr />
     <div class="btn-group mt-sm">
-      <button (click)="goBack()" class="btn btn--cancel" type="button">
+      <button
+        [routerLink]="['../../listing', clientId]"
+        class="btn btn--cancel"
+        type="button"
+      >
         go back
       </button>
       <button class="btn btn--add" type="submit">add contact</button>

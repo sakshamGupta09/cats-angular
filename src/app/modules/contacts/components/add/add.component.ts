@@ -7,7 +7,6 @@ import {
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { ContactsService } from '../../services/contacts.service';
-import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-add',
@@ -23,8 +22,7 @@ export class AddComponent implements OnInit {
     private fb: FormBuilder,
     private service: ContactsService,
     private cdRef: ChangeDetectorRef,
-    private route: ActivatedRoute,
-    private location: Location
+    private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
@@ -64,9 +62,6 @@ export class AddComponent implements OnInit {
         this.detectChanges();
       },
     });
-  }
-  public goBack(): void {
-    this.location.back();
   }
   private detectChanges(): void {
     this.cdRef.detectChanges();
