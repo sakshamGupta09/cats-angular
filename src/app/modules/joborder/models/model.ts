@@ -9,3 +9,12 @@ export interface IJoborder {
   recruiterId: string;
   clientId: string;
 }
+export interface IRecruiter {
+  _id: string;
+  username: string;
+}
+export interface IRecruiterResponse {
+  statusCode: number;
+  message: string;
+  data: IRecruiter[];
+}

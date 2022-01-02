@@ -169,6 +169,26 @@
           </mat-error>
         </mat-form-field>
       </div>
+      <div class="form-group">
+        <mat-form-field>
+          <mat-label>Assign Recruiter</mat-label>
+          <input
+            type="text"
+            placeholder="Enter at least 3 characters"
+            matInput
+            formControlName="recruiterId"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete #auto="matAutocomplete">
+            <mat-option
+              *ngFor="let option of $recruiters | async"
+              [value]="option._id"
+            >
+              {{ option.username }}
+            </mat-option>
+          </mat-autocomplete>
+        </mat-form-field>
+      </div>
     </div>
     <hr />
     <div class="btn-group mt-sm">

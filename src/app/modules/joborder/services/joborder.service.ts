@@ -1,15 +1,22 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { IJoborder } from '../models/model';
+import { map } from 'rxjs';
+import { IJoborder, IRecruiterResponse } from '../models/model';
 
 @Injectable()
 export class JoborderService {
   constructor(private http: HttpClient) {}
 
   public getJobordersOfClient(clientId: string, payload) {
-    this.http.get(`client/joborders/${clientId}`, { params: payload });
+    return this.http.get(`client/joborders/${clientId}`, { params: payload });
   }
+  public getRecruiterByName(search: string) {
+    return this.http
+      .get<IRecruiterResponse>(`recruiter/getByName/${search}`)
+      .pipe(map((res) => res.data));
+  }
+
   public addJoborder(payload: IJoborder) {
-    this.http.post<IJoborder>('joborder/create', payload);
+    return this.http.post<IJoborder>('joborder/create', payload);
   }
 }
