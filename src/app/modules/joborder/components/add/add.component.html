@@ -179,10 +179,13 @@
             formControlName="recruiterId"
             [matAutocomplete]="auto"
           />
-          <mat-autocomplete #auto="matAutocomplete">
+          <mat-autocomplete
+            #auto="matAutocomplete"
+            [displayWith]="autocompleteDisplayFn"
+          >
             <mat-option
               *ngFor="let option of $recruiters | async"
-              [value]="option._id"
+              [value]="option"
             >
               {{ option.username }}
             </mat-option>

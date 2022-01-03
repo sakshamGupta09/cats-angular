@@ -6,10 +6,12 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ActivatedRoute } from '@angular/router';
 import {
   debounceTime,
   distinctUntilChanged,
+  filter,
   Observable,
   Subscription,
 } from 'rxjs';
@@ -63,7 +65,11 @@ export class AddComponent implements OnInit, OnDestroy {
   private subscribeToChange(): void {
     this.subscription = this.form
       .get('recruiterId')
-      .valueChanges.pipe(debounceTime(900), distinctUntilChanged())
+      .valueChanges.pipe(
+        filter((query: string) => query?.length >= 3),
+        debounceTime(900),
+        distinctUntilChanged()
+      )
       .subscribe({
         next: (value) => {
           this.$recruiters = this.service.getRecruiterByName(value);
@@ -76,6 +82,9 @@ export class AddComponent implements OnInit, OnDestroy {
       this.form.markAllAsTouched();
       return;
     }
+  }
+  public autocompleteDisplayFn(option): string {
+    return option ? option.username : option;
   }
   ngOnDestroy() {
     this.subscription.unsubscribe();
