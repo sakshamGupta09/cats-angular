@@ -7,7 +7,6 @@ export interface IJoborder {
   country: string;
   openings: number;
   recruiterId: string;
-  clientId: string;
 }
 export interface IRecruiter {
   _id: string;

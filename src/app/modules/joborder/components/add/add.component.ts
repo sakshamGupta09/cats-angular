@@ -6,7 +6,6 @@ import {
   OnInit,
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MatAutocompleteSelectedEvent } from '@angular/material/autocomplete';
 import { ActivatedRoute } from '@angular/router';
 import {
   debounceTime,
@@ -15,6 +14,7 @@ import {
   Observable,
   Subscription,
 } from 'rxjs';
+import { IsObject } from 'src/app/validators/is-object';
 import { JoborderService } from '../../services/joborder.service';
 
 interface IRecruiter {
@@ -58,13 +58,13 @@ export class AddComponent implements OnInit, OnDestroy {
       city: ['', [Validators.required]],
       country: ['', [Validators.required]],
       openings: ['', [Validators.required, Validators.min(1)]],
-      recruiterId: ['', [Validators.required]],
+      recruiter: ['', [Validators.required, IsObject]],
     });
     this.subscribeToChange();
   }
   private subscribeToChange(): void {
     this.subscription = this.form
-      .get('recruiterId')
+      .get('recruiter')
       .valueChanges.pipe(
         filter((query: string) => query?.length >= 3),
         debounceTime(900),
@@ -82,6 +82,20 @@ export class AddComponent implements OnInit, OnDestroy {
       this.form.markAllAsTouched();
       return;
     }
+    this.isLoading = true;
+    const payload = { ...this.form.value };
+    payload.recruiterId = payload.recruiter._id;
+    delete payload.recruiter;
+    this.service.addJoborder(payload).subscribe({
+      next: (res) => {
+        this.isLoading = false;
+        this.detectChanges();
+      },
+      error: (err) => {
+        this.isLoading = false;
+        this.detectChanges();
+      },
+    });
   }
   public autocompleteDisplayFn(option): string {
     return option ? option.username : option;

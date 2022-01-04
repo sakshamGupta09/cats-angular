@@ -176,9 +176,23 @@
             type="text"
             placeholder="Enter at least 3 characters"
             matInput
-            formControlName="recruiterId"
+            formControlName="recruiter"
             [matAutocomplete]="auto"
           />
+          <mat-error
+            class="form-error"
+            *ngIf="
+              form.get('recruiter').invalid &&
+              (form.get('recruiter').touched || form.get('recruiter').dirty)
+            "
+          >
+            <ng-container *ngIf="form.get('recruiter').errors?.['required']"
+              >This field is mandatory</ng-container
+            >
+            <ng-container *ngIf="form.get('recruiter').errors?.['notAnObject']"
+              >Please choose from the list only</ng-container
+            >
+          </mat-error>
           <mat-autocomplete
             #auto="matAutocomplete"
             [displayWith]="autocompleteDisplayFn"
