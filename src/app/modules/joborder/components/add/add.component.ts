@@ -86,7 +86,7 @@ export class AddComponent implements OnInit, OnDestroy {
     const payload = { ...this.form.value };
     payload.recruiterId = payload.recruiter._id;
     delete payload.recruiter;
-    this.service.addJoborder(payload).subscribe({
+    this.service.addJoborder(payload, this.clientId).subscribe({
       next: (res) => {
         this.isLoading = false;
         this.detectChanges();

@@ -16,7 +16,7 @@ export class JoborderService {
       .pipe(map((res) => res.data));
   }
 
-  public addJoborder(payload: IJoborder) {
-    return this.http.post<IJoborder>('joborder/create', payload);
+  public addJoborder(payload: IJoborder, clientId: string) {
+    return this.http.post<IJoborder>(`joborder/create/${clientId}`, payload);
   }
 }
