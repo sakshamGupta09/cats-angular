@@ -20,7 +20,7 @@ const routes: Routes = [
     component: AddComponent,
   },
   {
-    path: 'edit/:jobId',
+    path: 'edit/:jobId/:clientId',
     component: EditComponent,
   },
 ];

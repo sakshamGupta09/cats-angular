@@ -1,0 +1,36 @@
+.card {
+  font-size: 1rem;
+  background-color: var(--color-white);
+  border: 1px solid #ccc;
+  border-top-width: 3px;
+  border-top-color: var(--color-primary);
+  padding: 1rem;
+  margin-bottom: 1rem;
+
+  &__jobtitle {
+    font-size: 1.2em;
+    font-weight: 600;
+    color: #44444f;
+    letter-spacing: 0.8px;
+  }
+  &__content {
+    display: grid;
+    grid-template-columns: min-content 1fr;
+    grid-gap: 1rem;
+  }
+  &__icon {
+    color: #495057;
+  }
+  &__link {
+    display: block;
+    text-align: center;
+    margin-top: 1.2rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .page-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1.5rem;
+  }
+}

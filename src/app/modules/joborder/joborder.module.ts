@@ -6,6 +6,7 @@ import { LoaderModule } from 'src/app/shared/loader/loader.module';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { MatIconModule } from '@angular/material/icon';
 
 import { ListingComponent } from './components/listing/listing.component';
 import { DetailsComponent } from './components/details/details.component';
@@ -30,6 +31,7 @@ import { JoborderService } from './services/joborder.service';
     MatFormFieldModule,
     MatInputModule,
     MatAutocompleteModule,
+    MatIconModule,
   ],
   providers: [JoborderService],
 })

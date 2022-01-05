@@ -1,1 +1,19 @@
-<p>listing works!</p>
+<h1 class="page-heading">Joborder Listing</h1>
+<div [hidden]="isLoading">
+  <div class="page-grid mt-sm" *ngIf="joborders?.length">
+    <div class="card" *ngFor="let el of joborders; trackBy: joborderTracker">
+      <p class="card__jobtitle">{{ el.title }}</p>
+      <div class="card__content">
+        <mat-icon class="card__icon">place</mat-icon>
+        <p class="key-value">{{ el.city + ", " + el.country }}</p>
+        <mat-icon class="card__icon">work_outline</mat-icon>
+        <p class="key-value">{{ el.experience }} years</p>
+      </div>
+      <a [routerLink]="['../../details', el._id]" class="card__link link"
+        >View More</a
+      >
+    </div>
+  </div>
+  <div *ngIf="joborders?.length == 0" class="no-data">No Data Found</div>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>

@@ -1,4 +1,5 @@
 export interface IJoborder {
+  _id: string;
   title: string;
   experience: string;
   skills: string;
@@ -7,6 +8,7 @@ export interface IJoborder {
   country: string;
   openings: number;
   recruiterId: string;
+  createdAt: Date;
 }
 export interface IRecruiter {
   _id: string;
@@ -16,4 +18,12 @@ export interface IRecruiterResponse {
   statusCode: number;
   message: string;
   data: IRecruiter[];
+}
+export interface IGetJobordersResponse {
+  statusCode: number;
+  message: string;
+  data: {
+    joborders: IJoborder[];
+    totalRecords: number;
+  };
 }
