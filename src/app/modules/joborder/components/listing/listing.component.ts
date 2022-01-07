@@ -3,6 +3,7 @@ import {
   ChangeDetectorRef,
   Component,
   OnInit,
+  Renderer2,
 } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IJoborder } from '../../models/model';
@@ -20,10 +21,13 @@ export class ListingComponent implements OnInit {
   public clientId: string;
   public isLoading: boolean = false;
   private totalRecords: number = 0;
+  private disposeListener: () => void;
+
   constructor(
     private service: JoborderService,
     private route: ActivatedRoute,
-    private ccdRef: ChangeDetectorRef
+    private ccdRef: ChangeDetectorRef,
+    private renderer: Renderer2
   ) {}
 
   ngOnInit(): void {
@@ -32,7 +36,20 @@ export class ListingComponent implements OnInit {
   private fetchUrlParams(): void {
     this.clientId = this.route.snapshot.params?.['clientId'];
     this.getJoborders();
+    this.subscribeToScoll();
   }
+  private subscribeToScoll(): void {
+    this.disposeListener = this.renderer.listen('window', 'scroll', (event) => {
+      if (
+        Math.round(window.scrollY + window.innerHeight) >=
+        document.documentElement.scrollHeight
+      ) {
+        console.log('==Scrolled to bottom');
+        alert('scrolled to bottom');
+      }
+    });
+  }
+
   private getJoborders(): void {
     this.isLoading = true;
     this.service.getJobordersOfClient(this.clientId, this.payload).subscribe({
@@ -54,5 +71,10 @@ export class ListingComponent implements OnInit {
   }
   private detectChanges(): void {
     this.ccdRef.detectChanges();
+  }
+  ngOnDestroy() {
+    if (this.disposeListener) {
+      this.disposeListener();
+    }
   }
 }
