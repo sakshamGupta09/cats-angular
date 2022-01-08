@@ -17,7 +17,7 @@ import { JoborderService } from '../../services/joborder.service';
 })
 export class ListingComponent implements OnInit {
   public payload = { limit: 10, skip: 0 };
-  public joborders: IJoborder[];
+  public joborders: IJoborder[] = [];
   public clientId: string;
   public isLoading: boolean = false;
   private totalRecords: number = 0;
@@ -33,9 +33,9 @@ export class ListingComponent implements OnInit {
   ngOnInit(): void {
     this.fetchUrlParams();
   }
-  private fetchUrlParams(): void {
+  private async fetchUrlParams() {
     this.clientId = this.route.snapshot.params?.['clientId'];
-    this.getJoborders();
+    await this.getJoborders();
     this.subscribeToScoll();
   }
   private subscribeToScoll(): void {
@@ -44,26 +44,35 @@ export class ListingComponent implements OnInit {
         Math.round(window.scrollY + window.innerHeight) >=
         document.documentElement.scrollHeight
       ) {
-        console.log('==Scrolled to bottom');
-        alert('scrolled to bottom');
+        if (this.shouldLoadMore()) {
+          this.payload.skip = this.payload.skip + this.payload.limit;
+          this.getJoborders();
+        }
       }
     });
   }
+  private shouldLoadMore(): boolean {
+    return !this.isLoading && this.totalRecords > this.joborders.length;
+  }
 
-  private getJoborders(): void {
-    this.isLoading = true;
-    this.service.getJobordersOfClient(this.clientId, this.payload).subscribe({
-      next: (res) => {
-        this.joborders = res.data.joborders;
-        this.totalRecords = res.data.totalRecords;
-        this.isLoading = false;
-        this.detectChanges();
-      },
-      error: (err) => {
-        this.joborders = [];
-        this.isLoading = false;
-        this.detectChanges();
-      },
+  private getJoborders(): Promise<boolean> {
+    return new Promise((resolve, reject) => {
+      this.isLoading = true;
+      this.service.getJobordersOfClient(this.clientId, this.payload).subscribe({
+        next: (res) => {
+          this.joborders = this.joborders.concat(res.data.joborders);
+          this.totalRecords = res.data.totalRecords;
+          this.isLoading = false;
+          this.detectChanges();
+          resolve(true);
+        },
+        error: (err) => {
+          this.joborders = [];
+          this.isLoading = false;
+          this.detectChanges();
+          resolve(false);
+        },
+      });
     });
   }
   public joborderTracker(index: number, row: IJoborder): string {
