@@ -41,7 +41,7 @@ export class ListingComponent implements OnInit {
   private subscribeToScoll(): void {
     this.disposeListener = this.renderer.listen('window', 'scroll', (event) => {
       if (
-        Math.round(window.scrollY + window.innerHeight) >=
+        Math.ceil(window.scrollY + window.innerHeight) >=
         document.documentElement.scrollHeight
       ) {
         if (this.shouldLoadMore()) {
