@@ -1,1 +1,95 @@
-<p>listing works!</p>
+<h1 class="page-heading">Recruiters Listing</h1>
+<div class="table-container" *ngIf="recruiters">
+  <div class="header">
+    <a routerLink="../add" class="add-btn">+ Add Recruiter</a>
+    <div class="search-box">
+      <app-search
+        (onSearch)="searchRecruiters($event)"
+        placeholder="Search by Recruiter name"
+      ></app-search>
+    </div>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Manager</th>
+        <th>Created At</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody [hidden]="!recruiters.length">
+      <tr *ngFor="let el of recruiters; trackBy: tracker">
+        <td>
+          <a [routerLink]="['../details', el._id]" class="link">{{
+            el.username
+          }}</a>
+        </td>
+        <td>{{ el.email }}</td>
+        <td>{{ el.phone }}</td>
+        <td>{{ el.manager.username }}</td>
+        <td>{{ el.createdAt | date: "mediumDate" }}</td>
+        <td>
+          <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon>more_vert</mat-icon>
+          </button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item [routerLink]="['../edit', el._id]">
+              <mat-icon>edit</mat-icon>
+              <span>Edit</span>
+            </button>
+            <button mat-menu-item (click)="onDeleteHandler(el._id)">
+              <mat-icon>delete_outline</mat-icon>
+              <span>Delete</span>
+            </button>
+            <button
+              mat-menu-item
+              [routerLink]="['/app/contacts/listing', el._id]"
+            >
+              <mat-icon>perm_identity</mat-icon>
+              <span>Contacts</span>
+            </button>
+            <button
+              mat-menu-item
+              [routerLink]="['/app/joborders/listing', el._id]"
+            >
+              <mat-icon>work_outline</mat-icon>
+              <span>Joborders</span>
+            </button>
+          </mat-menu>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="paginator mt-xs" [hidden]="!totalRecords">
+    <mat-paginator
+      [length]="totalRecords"
+      [pageSize]="payload.limit"
+      [pageSizeOptions]="pageSizeOptions"
+      aria-label="Select page"
+      (page)="onPageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
+  <div class="no-data" [hidden]="recruiters.length">No Data Found</div>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>
+<app-modal heading="Confirmation" modalType="modal__sm" [hidden]="!isModalOpen">
+  <p modal-body class="confirmation-text">
+    Are you sure you want to delete this recruiter ?
+  </p>
+  <div modal-footer class="btn-group">
+    <button
+      class="btn btn--cancel"
+      (click)="isModalOpen = !isModalOpen"
+      type="button"
+    >
+      no, thanks
+    </button>
+    <button class="btn btn--add" type="submit" (click)="deleteRecruiter()">
+      yes, delete
+    </button>
+  </div>
+</app-modal>
