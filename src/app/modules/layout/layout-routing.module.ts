@@ -22,6 +22,13 @@ const routes: Routes = [
         loadChildren: () =>
           import('../joborder/joborder.module').then((m) => m.JoborderModule),
       },
+      {
+        path: 'recruiters',
+        loadChildren: () =>
+          import('../recruiters/recruiter.module').then(
+            (m) => m.RecruiterModule
+          ),
+      },
     ],
   },
 ];
