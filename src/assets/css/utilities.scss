@@ -14,6 +14,7 @@
   &:link,
   &:visited {
     color: var(--color-primary);
+    text-decoration: none;
   }
   &:hover {
     color: var(--color-secondary);

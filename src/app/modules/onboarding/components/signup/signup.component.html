@@ -17,15 +17,17 @@
       spellcheck="false"
     >
       <div class="form-group">
-        <input
-          type="text"
-          class="form-control form-control--append"
-          placeholder="First Name"
-          formControlName="firstName"
-        />
-        <span class="input-icon-append">
-          <mat-icon>person_outline</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control form-control--append"
+            placeholder="First Name"
+            formControlName="firstName"
+          />
+          <span class="input-icon-append">
+            <mat-icon>person_outline</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="
@@ -39,15 +41,17 @@
         </div>
       </div>
       <div class="form-group mt-xs">
-        <input
-          type="text"
-          class="form-control form-control--append"
-          placeholder="Last Name"
-          formControlName="lastName"
-        />
-        <span class="input-icon-append">
-          <mat-icon>person_outline</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            type="text"
+            class="form-control form-control--append"
+            placeholder="Last Name"
+            formControlName="lastName"
+          />
+          <span class="input-icon-append">
+            <mat-icon>person_outline</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="
@@ -61,15 +65,17 @@
         </div>
       </div>
       <div class="form-group mt-xs">
-        <input
-          type="email"
-          class="form-control form-control--append"
-          placeholder="Email"
-          formControlName="email"
-        />
-        <span class="input-icon-append">
-          <mat-icon>mail_outline</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            type="email"
+            class="form-control form-control--append"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <span class="input-icon-append">
+            <mat-icon>mail_outline</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="
@@ -86,15 +92,17 @@
         </div>
       </div>
       <div class="form-group mt-xs">
-        <input
-          type="tel"
-          class="form-control form-control--append"
-          placeholder="Phone Number"
-          formControlName="phone"
-        />
-        <span class="input-icon-append">
-          <mat-icon>phone</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            type="tel"
+            class="form-control form-control--append"
+            placeholder="Phone Number"
+            formControlName="phone"
+          />
+          <span class="input-icon-append">
+            <mat-icon>phone</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="
@@ -108,20 +116,22 @@
         </div>
       </div>
       <div class="form-group mt-xs">
-        <input
-          [type]="showPassword ? 'text' : 'password'"
-          class="form-control form-control--append"
-          placeholder="Password"
-          formControlName="password"
-        />
-        <span
-          class="input-icon-append pointer"
-          (click)="showPassword = !showPassword"
-        >
-          <mat-icon>{{
-            showPassword ? "visibility" : "visibility_off"
-          }}</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            [type]="showPassword ? 'text' : 'password'"
+            class="form-control form-control--append"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <span
+            class="input-icon-append pointer"
+            (click)="showPassword = !showPassword"
+          >
+            <mat-icon>{{
+              showPassword ? "visibility" : "visibility_off"
+            }}</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="

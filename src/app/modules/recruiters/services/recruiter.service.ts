@@ -14,4 +14,7 @@ export class RecruiterService {
   public deleteRecruiter(recruiterId: string) {
     return this.http.delete(`recruiter/delete/${recruiterId}`);
   }
+  public addRecruiter(payload) {
+    return this.http.post('recruiter/create', payload);
+  }
 }

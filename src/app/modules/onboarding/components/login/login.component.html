@@ -17,15 +17,17 @@
       spellcheck="false"
     >
       <div class="form-group">
-        <input
-          type="email"
-          class="form-control form-control--append"
-          placeholder="Email"
-          formControlName="email"
-        />
-        <span class="input-icon-append">
-          <mat-icon>mail_outline</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            type="email"
+            class="form-control form-control--append"
+            placeholder="Email"
+            formControlName="email"
+          />
+          <span class="input-icon-append">
+            <mat-icon>mail_outline</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="
@@ -42,15 +44,17 @@
         </div>
       </div>
       <div class="form-group mt-xs">
-        <input
-          type="password"
-          class="form-control form-control--append"
-          placeholder="Password"
-          formControlName="password"
-        />
-        <span class="input-icon-append">
-          <mat-icon>lock_open</mat-icon>
-        </span>
+        <div class="input-group">
+          <input
+            type="password"
+            class="form-control form-control--append"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <span class="input-icon-append">
+            <mat-icon>lock_open</mat-icon>
+          </span>
+        </div>
         <div
           class="form-error"
           *ngIf="
