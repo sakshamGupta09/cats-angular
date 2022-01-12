@@ -1,1 +1,20 @@
-<p>details works!</p>
+<h1 class="page-heading">Recruiter Details</h1>
+<div class="details-container" *ngIf="recruiter">
+  <h6 class="key-label">Name</h6>
+  <p class="key-value">{{ recruiter.username }}</p>
+  <h6 class="key-label">Email</h6>
+  <p class="key-value">{{ recruiter.email }}</p>
+  <h6 class="key-label">Phone</h6>
+  <p class="key-value">{{ recruiter.phone }}</p>
+  <h6 class="key-label">Total Experience</h6>
+  <p class="key-value">{{ recruiter.totalExperience }} years</p>
+  <h6 class="key-label">Expertise Domain</h6>
+  <p class="key-value">{{ recruiter.expertiseDomain }}</p>
+  <h6 class="key-label">Address</h6>
+  <p class="key-value">{{ recruiter.city + ", " + recruiter.country }}</p>
+  <h6 class="key-label">Creation Date</h6>
+  <p class="key-value">{{ recruiter.createdAt | date: "mediumDate" }}</p>
+  <h6 class="key-label">Manager</h6>
+  <p class="key-value">{{ recruiter.manager.username }}</p>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>

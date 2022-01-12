@@ -1,4 +1,3 @@
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
@@ -7,7 +6,6 @@ import {
 } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { patterns } from 'src/app/validators/patterns';
 import { IRecruiter } from '../../models/model';
 import { RecruiterService } from '../../services/recruiter.service';
 
