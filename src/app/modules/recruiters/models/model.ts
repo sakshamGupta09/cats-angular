@@ -20,3 +20,8 @@ export interface IGetRecruiterResponse {
     totalRecords: number;
   };
 }
+export interface IGetByIdResponse {
+  statusCode: number;
+  message: string;
+  data: IRecruiter;
+}
