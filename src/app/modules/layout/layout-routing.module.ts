@@ -29,6 +29,13 @@ const routes: Routes = [
             (m) => m.RecruiterModule
           ),
       },
+      {
+        path: 'candidates',
+        loadChildren: () =>
+          import('../candidates/candidate.module').then(
+            (m) => m.CandidateModule
+          ),
+      },
     ],
   },
 ];
