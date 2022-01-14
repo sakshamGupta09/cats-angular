@@ -14,4 +14,7 @@ export class CandidateService {
   public deleteCanidate(candidateId) {
     return this.http.delete(`candidate/delete/${candidateId}`);
   }
+  public addCandidate(payload) {
+    return this.http.post('candidate/create', payload);
+  }
 }

@@ -5,8 +5,8 @@ export interface ICandidate {
   email: string;
   phone: string;
   jobTitle: string;
-  experience: number;
-  noticePeriod: number;
+  experience: string;
+  noticePeriod: string;
   currentSalary: string;
   expectedSalary: string;
   currentCity: string;

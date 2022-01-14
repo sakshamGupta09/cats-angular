@@ -1,1 +1,271 @@
-<p>add works!</p>
+<h1 class="page-heading">Add Candidate</h1>
+<div class="page-content">
+  <form
+    class="add-form"
+    [formGroup]="form"
+    autocomplete="off"
+    spellcheck="false"
+    novalidate
+    (ngSubmit)="onSubmit()"
+  >
+    <div class="form-layout">
+      <mat-form-field>
+        <mat-label>First Name</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="John"
+          formControlName="firstName"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('firstName').invalid &&
+            (form.get('firstName').touched || form.get('firstName').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('firstName').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Last Name</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Doe"
+          formControlName="lastName"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('lastName').invalid &&
+            (form.get('lastName').touched || form.get('lastName').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('lastName').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input
+          type="email"
+          matInput
+          placeholder="user@example.com"
+          formControlName="email"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('email').invalid &&
+            (form.get('email').touched || form.get('email').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('email').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+          <ng-container *ngIf="form.get('email').errors?.['email']"
+            >Please enter a valid email</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input
+          type="tel"
+          matInput
+          placeholder="0000000000"
+          formControlName="phone"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('phone').invalid &&
+            (form.get('phone').touched || form.get('phone').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('phone').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Job Title</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Senior Ui Developer"
+          formControlName="jobTitle"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('jobTitle').invalid &&
+            (form.get('jobTitle').touched || form.get('jobTitle').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('jobTitle').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Experience (in years)</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="3"
+          formControlName="experience"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('experience').invalid &&
+            (form.get('experience').touched || form.get('experience').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('experience').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Notice (in days)</mat-label>
+        <input
+          type="number"
+          matInput
+          placeholder="30"
+          formControlName="noticePeriod"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('noticePeriod').invalid &&
+            (form.get('noticePeriod').touched || form.get('noticePeriod').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('noticePeriod').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Current Salary</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="14 LPA"
+          formControlName="currentSalary"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('currentSalary').invalid &&
+            (form.get('currentSalary').touched ||
+              form.get('currentSalary').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('currentSalary').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Expected Salary</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="30 LPA"
+          formControlName="expectedSalary"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('expectedSalary').invalid &&
+            (form.get('expectedSalary').touched ||
+              form.get('expectedSalary').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('expectedSalary').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Current City</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Noida"
+          formControlName="currentCity"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('currentCity').invalid &&
+            (form.get('currentCity').touched || form.get('currentCity').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('currentCity').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Current Country</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="India"
+          formControlName="currentCountry"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('currentCountry').invalid &&
+            (form.get('currentCountry').touched ||
+              form.get('currentCountry').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('currentCountry').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Key Skills</mat-label>
+        <input
+          type="text"
+          matInput
+          placeholder="Frontend Development"
+          formControlName="skills"
+        />
+        <mat-error
+          class="form-error"
+          *ngIf="
+            form.get('skills').invalid &&
+            (form.get('skills').touched || form.get('skills').dirty)
+          "
+        >
+          <ng-container *ngIf="form.get('skills').errors?.['required']"
+            >This field is mandatory</ng-container
+          >
+        </mat-error>
+      </mat-form-field>
+      <mat-slide-toggle color="primary" formControlName="canRelocate"
+        >Can Relocate</mat-slide-toggle
+      >
+    </div>
+    <hr />
+    <div class="btn-group mt-sm">
+      <button routerLink="../listing" class="btn btn--cancel" type="button">
+        go back
+      </button>
+      <button class="btn btn--add" type="submit">add candidate</button>
+    </div>
+  </form>
+</div>
+<app-loader [hidden]="!isLoading"></app-loader>
